@@ -18,6 +18,7 @@ import qrcode
 #ADDING
 
 #ARCCHIT 1234444
+#ARCHIT 1234444444
 #######################################################################
 main_bp = Blueprint('main_bp', __name__)
 
