@@ -3,11 +3,16 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField
 from flask_sqlalchemy  import SQLAlchemy
 from flask_mail import Mail, Message
+import sqlite3
 
 # Globally accessible libraries
 db = SQLAlchemy()
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+conn = sqlite3.connect('database.db')
+conn.execute('''CREATE TABLE IF NOT EXISTS EVENTS (USER_ID varchar(12) PRIMARY KEY NOT NULL, DR_LAB_ID varchar(12) NOT NULL, DATE TEXT NOT NULL);''')
+conn.execute('''CREATE TABLE if not exists doctor( id varchar(10) PRIMARY KEY, pasw varchar(100) NOT NULL, fname varchar(30) NOT NULL, lname varchar(30) NOT NULL, email varchar(30) NOT NULL, mob varchar(30) NOT NULL, dob varchar(30) NOT NULL, gender varchar(30) NOT NULL, regnum varchar(20) NOT NULL, Specialization varchar(30) NOT NULL, state varchar(15) NOT NULL, city varchar(30) NOT NULL, district varchar(30) NOT NULL, pin integer NOT NULL, addr1 varchar(30) NOT NULL, addr2 varchar(30) NOT NULL ) ''')
+conn.execute(''' CREATE TABLE if not exists "individual" ( "id" TEXT NOT NULL, "pasw" TEXT NOT NULL, "fname" TEXT, "lname" TEXT, "email" TEXT, "mob" TEXT, "dob" TEXT, "gender" TEXT, "aadhaar" TEXT, "blood" , "state" TEXT, "city" TEXT, "district" TEXT, "pin" TEXT, "addr1" TEXT, "addr2" TEXT, PRIMARY KEY("id") )''')
 def create_app():
     """Initialize the core application."""
     app = Flask(__name__, instance_relative_config=False)
