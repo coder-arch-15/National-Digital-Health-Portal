@@ -11,10 +11,7 @@ from flask_mail import Mail, Message
 from PIL import Image, ImageDraw
 import qrcode
 
-########################################################################
-#To add database code here
 
-#######################################################################
 main_bp = Blueprint('main_bp', __name__)
 
 login_manager = LoginManager()
@@ -62,11 +59,15 @@ def hello_world():
 def login():
 	return render_template('login.html')
 
-@main_bp.route('/dashboard')
+@main_bp.route('/dashboard2') 		############Dashboard for individual
 @login_required
 def dashboard():
-
 	return render_template('dashboard.html', name = current_user.get_name())
+
+@main_bp.route('/dashboard3')		###########Dashboard for doctor
+@login_required
+def dr_dashboard():
+	return render_template('doctor_dashboard.html', name = current_user.get_name())
 
 
 @main_bp.route('/dashboard', methods = ['GET', 'POST'])
@@ -79,7 +80,7 @@ def login_submit():
 			if temp:
 				if (check_password_hash(temp.pasw ,password)):
 					login_user(temp)
-					return redirect(url_for('main_bp.dashboard'))
+					return redirect(url_for('main_bp.dr_dashboard'))
 				else:
 					msg = "Incorrect"
 					flash("Incorrect Password")
@@ -142,5 +143,7 @@ def sub():
 			msg = e
 			return render_template('thank.html',namee=msg)
 
-#comment just to check if github is working or
-#git hub working
+
+@main_bp.route('/doctor/Settings')		####only for testing, ignore
+def dr_settings():
+	return render_template('settings.html')
