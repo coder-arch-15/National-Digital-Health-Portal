@@ -1,4 +1,3 @@
-<script type="text/javascript">
 var citiesByState = {ANDAMANANDNICOBARISLANDS:['PORTBLAIR','BAKULTALA','BAMBOOFLAT','GARACHARMA','PROTHRAPUR'],
 
 ANDHRAPRADESH:['ADONI','AKKARAMPALLE','AMADALAVALASA (AMUDALAVALASA)','AMALAPURAM',
@@ -130,4 +129,3 @@ function resetSelection() {
 document.getElementById("countrySelect").selectedIndex = 0;
 document.getElementById("citySelect").selectedIndex = 0;
 }
-</script>
