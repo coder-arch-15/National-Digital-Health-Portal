@@ -16,6 +16,8 @@ import qrcode
 #ESHAN SHARMA
 #JKKKKKKKK.............
 #ADDING
+
+#ARCCHIT 1234444
 #######################################################################
 main_bp = Blueprint('main_bp', __name__)
 
