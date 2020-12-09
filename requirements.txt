@@ -1,0 +1,12 @@
+flask
+flask_login
+flask_bootstrap
+flask_wtf
+flask_sqlalchemy
+wtforms
+flask-mail
+werkzeug
+blueprint
+pillow
+qrcode
+sqlite3

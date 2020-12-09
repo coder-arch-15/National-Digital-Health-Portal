@@ -1,0 +1,373 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NDHP Login</title>
+   
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    font-size: inherit;
+    box-sizing: border-box;
+}
+
+body {
+    
+    width: 100%;
+    margin: 0px auto;
+    padding: 0px auto;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    background: url(https://i.postimg.cc/rFTG7shy/stock-vector-smartphone-with-hospital-building-on-screen-doctor-consultation-online-with-emergency-c.jpg) no-repeat;
+    background-position: right;
+    background-size: cover;
+    height: 100vh;
+    
+}
+
+.container {
+    width: 600px;
+    height: auto;
+    padding: 20;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 40px;
+}
+
+h3 {
+    font-size: 20px;
+    color: #3A3A3A;
+    line-height: 53px;
+}
+
+.Sign_in-page {
+    display: block;
+    background-color: #fff;
+    float: left;
+    margin: 0px 18px 18px 18px;
+    width: 490px;
+    height: 600px;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    border-radius: 11px;
+    /* box-shadow: 10px 10px 50px 11px #707070; */
+}
+
+.signin-block {
+    width: 80%;
+    height: auto;
+    margin: 40px 0;
+    /* margin-top: 23px; */
+    line-height: 30px;
+}
+
+.signin-block .input_detail {
+    margin-bottom: 20px;
+}
+
+.input_detail label {
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.input_detail input {
+   width: 100%;
+    padding: 14px;
+    border-radius: 4px;
+    border: 2px solid #cccccc2e;
+    font-size: 12px;
+    margin-top: 4px;
+    background: #cccccc2e;
+    border-radius: 10px;
+}
+
+.submit-btn {
+    /* background: #FF9933; */
+     background: #ffff;
+    padding: 14px;
+    color: #FF9933;
+    border: 2px solid #FF9933;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 900;
+    width: 100%;
+    margin: 20px 0;
+    font-size: 12px;
+}
+
+.submit-btn:hover {
+    color: #fff;
+    border: 2px solid #FF9933;
+    background: #FF9933;
+}
+
+@media screen and (max-width: 480px) {
+    .Sign_in-page {
+        width: 100%;
+        margin: 0px;
+        border-radius: 0px;
+        height: 90vh;
+    }
+    .container {
+        margin: 40px 40px 40px 40px;
+        width: 100%;
+    }
+    .signin-block {
+        width: 100%;
+        height: auto;
+        margin: 40px 0;
+    }
+}
+
+.alert-danger {
+       background-color: #FF9933;
+    border-color: #ebccd1;
+    color: #fff;
+    width: 335px;
+    line-height: 35px;
+    font-size: 16px;
+}
+.signup-btn{
+        display: grid;
+    width: 90%
+    margin-top: -40px;
+     font-weight: 900;
+     font-size: 12px;
+}
+.signup-btn a{
+        margin: 5px 0;
+    text-decoration: none;
+}
+.seller-signup-btn{
+     display: grid;
+    width: 80%;
+    margin-top: -40px;
+    font-weight: 900;
+    font-size: 12px;
+
+}
+.seller-signup-btn a{
+        margin: 5px 0;
+    text-decoration: none;
+}
+.seller-submit-btn{
+     background: #ffff;
+     background-color: #FF9933;
+    padding: 14px;
+    color: white;
+    border: 2px solid #FF9933;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 900;
+    width: 100%;
+    margin: 20px 0;
+    font-size: 12px;
+}
+
+.alert {
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin: 0px 10px 0px 0px;
+    padding: 10px;
+    float: right;
+    background-color: #f44331;
+    color: white
+}
+
+
+    </style>
+</head>
+
+<body onload='document.loginForm.j_username.focus();'>
+    <div class="container" style="min-height:100% width:80%">
+    
+    </div>
+            {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+            <div class="alert">
+            {{message}}
+            </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    
+    {% block body %}{% endblock %}
+	<div class="Sign_in-page">
+
+        <div class="container">
+            
+                <img src="https://i.postimg.cc/Kc5Lbd52/image.png" width="80%">
+            		
+				
+			<form class="form" name='loginForm' action="/dashboard"
+					method='POST'>	
+            <div class="signin-block">
+                <h1>Signin</h1>
+                <div class="input_detail">
+                    <div class="form-group">
+                        <label class>Username</label>
+                        <input type="text" name='username' placeholder="Username" class="input" required autofocus/>
+                    </div>
+                </div>
+                <div class="input_detail">
+                    <div class="form-group">
+
+                        <label class>Password</label>
+                        <input type="password" name='password' placeholder="Password" class="input" required/>
+                    </div>
+                </div>
+                <button class="submit-btn" type="submit">SUBMIT</button>
+
+            </div>
+		</form>
+		<div class="seller-signup-btn">
+		 <a class="seller-submit-btn" href="../">Not Registered? Click Here!</a>
+		 <a style="float: right;" href="../forgot_password">Forgot
+						password</a>
+		 </div>
+        </div>
+
+    </div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<title>NDHP</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+  <style type="text/css">
+    .container {
+      background: linear-gradient(to left, #ecf9ef, #fff);
+  }
+  .left img{
+    float: left;
+    width: 68px;
+ }
+
+ .right img{
+  float: right;
+  width: auto;
+  height: 104px;
+  margin-top: 10px;
+ }
+  h1{
+    font-weight: 700;
+    vertical-align: middle;
+    margin-bottom: 1px;
+    text-align: center;
+    display: block;
+    text-transform: none;
+    font-size: 23px;
+    line-height: 27px
+  }
+
+  
+  </style>
+</head>
+<body id="myPage">
+
+<!-- Sidebar on click -->
+
+
+{% include 'home_layouts/header.html' %}
+
+
+<!-- Navbar -->
+<div class="w3-container">
+ <div class="w3-bar w3-theme-d2 w3-left-align">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="../login" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Login</a>
+  <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Team</a>
+  <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Work</a>
+  <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Price</a>
+  <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+    <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button" title="Notifications">Register <i class="fa fa-caret-down"></i></button>
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+      <a href="../individual_register" class="w3-bar-item w3-button">Individual</a>
+      <a href="../doctor_register" class="w3-bar-item w3-button">Doctor/Medical Staff</a>
+      <a href="../labs_register" class="w3-bar-item w3-button">Labs/Diagnosis Center</a>
+    </div>
+  </div>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a>
+ </div>
+
+
+
+<!-- Team Container -->
+<div class="w3-container w3-padding-64 w3-center" id="team">
+<h2>OUR TEAM</h2>
+<p>Meet the team - our office rats:</p>
+
+<div class="w3-row"><br>
+
+<div class="w3-quarter">
+  <img src="https://thumbs.dreamstime.com/b/businessman-character-set-animate-male-personage-constructor-different-man-postures-vector-127417884.jpg" alt="Boss" style="width:60%" class="w3-square w3-hover-opacity">
+  <h3>Archit Agarwal</h3>
+  <p>Web Designer</p>
+</div>
+
+<div class="w3-quarter">
+  <img src="https://i.morioh.com/2020/01/02/bd884a82abe0.jpg" alt="Boss" style="width:68%" class="w3-square w3-hover-opacity">
+  <h3>Eshan Sharma</h3>
+  <p>Team Lead</p>
+</div>
+
+<div class="w3-quarter">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTEaonO-1oMcdMr_rnkENd2ZymHLlbwLOTkag&usqp=CAU" alt="Boss" style="width:45%" class="w3-square w3-hover-opacity">
+  <h3>Sakshi Sharma</h3>
+  <p>Boss man</p>
+</div>
+
+
+</div>
+</div>
+
+<!-- Work Row -->
+<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work">
+
+<div class="w3-quarter">
+<h2>Our Work</h2>
+<p>There are a lot of tasks in medicine field which are repetitive and don’t necessarily require medical expertise. There is a need to optimize these processes and resources in-order to streamline the working of medical expects and take away their burden of non-medical tasks such as booking appointments, compiling medical history of patients, compiling laboratory results. This proposed work uses website-based user interface for booking appointments, laboratory tests and user interface for doctors to see medical history of patients and lab reports to design a system which reduces the burden of medical professionals from desk-work and let them focus on providing care and support to the patients. This serves as a very handy and feasible resource for doctors as well as patients as it provides ease of accessing and updating information.</p>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Patient
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>"...let me congratulate you on the choice of calling which offers a combination of intellectual and moral interests found in no other profession."
+
+  </p>
+      <footer class="blockquote-footer">  ― Sir William Olser (1849 - 1919)<cite title="Source Title"></cite></footer>
+    </blockquote>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Doctor
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>“I remind my fellows, residents and medical students that what we do is a privilege. People let us into the most intimate aspects of their lives, and they look to us to help guide them through very complex and delicate situations.”
+
+    </p>
+      <footer class="blockquote-footer">― Shikha Jain, MD via KevinMD<cite title="Source Title"></cite></footer>
+    </blockquote>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Lab Technician
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>"[Being a doctor] offers the most complete and constant union of those three qualities which have the greatest charm for pure and active minds – novelty, utility, and charity."
+
+    </p>
+      <footer class="blockquote-footer">― Sir James Paget (1814 - 1899)<cite title="Source Title"></cite></footer>
+    </blockquote>
+  </div>
+</div>
+
+</div>
+<!-- Footer code starts-->
+{% include 'home_layouts/footer.html' %} 
+<!-- Footer code ends-->
+
+</div>
+
+
+
+
+<script>
+// Script for side navigation
+function w3_open() {
+  var x = document.getElementById("mySidebar");
+  x.style.width = "300px";
+  x.style.paddingTop = "10%";
+  x.style.display = "block";
+}
+
+// Close side navigation
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
