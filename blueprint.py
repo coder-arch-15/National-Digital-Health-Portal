@@ -12,10 +12,7 @@ import qrcode
 
 ########################################################################
 #To add database code here
-
-#ESHAN SHARMA
-#JKKKKKKKK.............
-#ADDING
+#ESHAN 321
 #######################################################################
 main_bp = Blueprint('main_bp', __name__)
 
