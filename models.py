@@ -26,3 +26,4 @@ class individual(UserMixin, db.Model):
 	def get_name(self):
 		name = self.fname + " " + self.lname
 		return name
+#comment to check github software
