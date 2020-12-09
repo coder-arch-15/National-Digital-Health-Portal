@@ -26,4 +26,30 @@ class individual(UserMixin, db.Model):
 	def get_name(self):
 		name = self.fname + " " + self.lname
 		return name
-#comment to check github software
+
+
+#_____________Added by eshan___________
+
+# class doctor(UserMixin, db.Model):
+# 	id = db.Column(db.String(10), primary_key = True, nullable = False)
+# 	pasw = db.Column(db.String(100), nullable = False)
+# 	fname = db.Column(db.String(30), index = False, nullable= False)
+# 	lname = db.Column(db.String(30), index = False, nullable= False)
+# 	email = db.Column(db.String(30), index = False, nullable= False)
+# 	mob = db.Column(db.String(30), index = False, nullable= False)
+# 	dob = db.Column(db.String(30), index = False, nullable= False)
+# 	gender = db.Column(db.String(30), index = False, nullable= False)
+# 	aadhaar = db.Column(db.Integer())
+# 	blood = db.Column(db.Text(3), index = False, nullable= False)
+# 	state = db.Column(db.String(15), index = False, nullable= False)
+# 	city = db.Column(db.String(15), index = False, nullable= False)
+# 	district = db.Column(db.String(30), index = False, nullable= True)
+# 	pin = db.Column(db.Integer(), index = False, nullable= False)
+# 	addr1 = db.Column(db.String(30), index = False, nullable= False)
+# 	addr2 = db.Column(db.String(30), index = False, nullable= True)
+#
+# 	def get_name(self):
+# 		name = self.fname + " " + self.lname
+# 		return name
+
+#_____________.________________________

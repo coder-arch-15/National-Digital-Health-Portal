@@ -6,6 +6,7 @@ import new_user_credentials as nuc
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import current_app as app
 from models import individual
+#from models import doctor
 from flask_mail import Mail, Message
 from PIL import Image, ImageDraw
 import qrcode
@@ -13,12 +14,6 @@ import qrcode
 ########################################################################
 #To add database code here
 
-#ESHAN SHARMA
-#JKKKKKKKK.............
-#ADDING
-
-#ARCCHIT 1234444
-#ARCHIT 1234444444
 #######################################################################
 main_bp = Blueprint('main_bp', __name__)
 
