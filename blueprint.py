@@ -12,7 +12,6 @@ import qrcode
 
 ########################################################################
 #To add database code here
-# this is a test for archit - i was adding text in requirement.txt
 #######################################################################
 main_bp = Blueprint('main_bp', __name__)
 
