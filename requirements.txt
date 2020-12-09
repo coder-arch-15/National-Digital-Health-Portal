@@ -9,4 +9,3 @@ werkzeug
 blueprint
 pillow
 qrcode
-sqlite3
