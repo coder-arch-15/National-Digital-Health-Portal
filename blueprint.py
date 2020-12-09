@@ -140,4 +140,5 @@ def sub():
 			msg = e
 			return render_template('thank.html',namee=msg)
 
-#comment just to check if github is working or not
+#comment just to check if github is working or 
+#git hub working
