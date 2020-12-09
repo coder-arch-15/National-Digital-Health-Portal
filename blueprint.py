@@ -12,6 +12,7 @@ import qrcode
 
 ########################################################################
 #To add database code here
+# this is a test for archit - i was adding text in requirement.txt
 #######################################################################
 main_bp = Blueprint('main_bp', __name__)
 
@@ -140,5 +141,5 @@ def sub():
 			msg = e
 			return render_template('thank.html',namee=msg)
 
-#comment just to check if github is working or 
+#comment just to check if github is working or
 #git hub working
