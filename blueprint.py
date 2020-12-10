@@ -11,7 +11,7 @@ from flask_mail import Mail, Message
 from PIL import Image, ImageDraw
 import qrcode
 
-#SAkshi testkkkk
+
 main_bp = Blueprint('main_bp', __name__)
 
 login_manager = LoginManager()
@@ -147,3 +147,41 @@ def sub():
 @main_bp.route('/doctor/Settings')		####only for testing, ignore
 def dr_settings():
 	return render_template('settings.html')
+
+
+@main_bp.route('/labs_form_submit', methods = ['GET' , 'POST'])
+def lab_form_sub():
+	if request.method == 'POST':
+		try:
+			lab_name = request.form['lab_name']
+			tests_avlbl = request.form['tests_avlbl']
+			email = request.form['email']
+			mob = request.form['mob']
+			licenseno = request.form['licenseno']
+			owner_name=request.form['owner_name']
+			state = request.form['state']
+			city = request.form['city']
+			district = request.form['district']
+			pin = request.form['pincode']
+			addr1=request.form['add1']
+			addr2=request.form['add2']
+
+			nu = lc.Labs(city, dob)
+			id,pasw = #to be added
+			temp = individual(id = id, licenseno=licenseno, pasw=generate_password_hash(pasw) ,
+				labname=lab_name, tests_avlbl =tests_avlbl, email=email, mob =mob,
+				state=state, city=city, district=district, pin=pin, addr1=addr1, addr2=addr2 )
+			db.session.add(temp)
+			db.session.commit()
+
+			thank_msg = "Record successfully added"
+			message = "Hi "+fname+" " +lname+"\nThank You for registering with National Digital Health Portal.\nYour login credentials are - \nUsername - " + h_id + "\nPassword - " + pasw
+			msg = Message('NDHP Registration', sender = 'ndhp.gov@gmail.com', recipients = [email])
+			msg.body = message
+			mail.send(msg)
+			return render_template('thank.html',namee=thank_msg)
+
+		except Exception as e:
+			msg = e
+			return render_template('thank.html',namee=msg)
+            
