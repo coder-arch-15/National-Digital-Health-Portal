@@ -85,11 +85,17 @@ hr {
 a {
   color: dodgerblue;
 }
-
+#reg_but {
+  border-radius: 25px;
+  font-size:25px;
+}
 /* Set a grey background color and center the text of the "sign in" section */
 .signin {
   background-color: white;
   text-align: center;
+  color: black;
+  border-radius: 25px;
+  font-size: 22px;
 }
 .excp{
   text-align: left;
@@ -98,6 +104,8 @@ a {
 </style>
 </head>
 <body>
+
+{% include 'home_layouts/header.html' %}
 
 <form action= '/labs_form_submit' method ='post'>
   <div class="container" >
@@ -119,15 +127,15 @@ a {
     <input type="text" id="mob" name="mob" placeholder="Enter Mobile Number" pattern="[0-9]{10}" required><br>
 
 
-    
+
 
     <label for="licenseno"><b>License Number<font color="red">*</font>:</b></label>
     <input type="text" id="licenseno" name="licenseno" placeholder = "Enter License Number" required>
-  
+
     <label for="owner_name"><b>Owner Name<font color="red">*</font>:</b></label>
     <input type="text" id="owner_name" placeholder="Enter Owner Name" name="owner_name" required>
 
-    
+
     <br><br>
     <label for="add"><b><h2>Address</h2></b></label><br>
 
@@ -202,13 +210,17 @@ a {
     <input type="checkbox" id="decl" name="decl" value="decl" required>
     <label for="decl" class="excp"> I hereby declare that the details furnished above are true and correct to the best of my knowledge and belief.</label><br>
 
-    <button type="submit" class="registerbtn">Submit</button>
+    <button type="submit" class="registerbtn" id="reg_but">Submit</button>
   </div>
 
   <div class="signin">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
+    <p >Already have an account? <a href="../login">Sign in</a>.</p>
   </div>
 </form>
+
+<!-- Footer code starts-->
+{% include 'home_layouts/footer.html' %}
+<!-- Footer code ends-->
 
 </body>
 </html>
