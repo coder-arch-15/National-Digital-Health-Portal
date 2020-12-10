@@ -1,0 +1,110 @@
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 30px 30px 40px 80px;
+  background-image: linear-gradient(to bottom right, pink,lightblue);;
+  border-radius: 8px;
+  margin-left: 181px;
+
+  /* Control the height of the image */
+}
+
+/* Full-width input fields */
+select,input,input[type=text], input[type=password] {
+  width: 10%;
+  padding: 12px;
+  margin: 7px 80px 15px 10px;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=checkbox]{
+  width:10px;
+  margin-right: 10px;
+}
+#gen_uid{
+  padding-left: 12px;
+}
+.excp{
+  width: 900px;
+}
+label {
+    width: 200px;
+    display: inline-block;
+}
+.head{
+  width: 100%;
+}
+
+.add{
+  width: 10%
+  margin: 7px 10px 15px 10px;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 10px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: white;
+  text-align: center;
+  color: black;
+  border-radius: 25px;
+  font-size: 22px;
+}
+
+#reg_but {
+  border-radius: 25px;
+  font-size:25px;
+}
+#button_uid{
+  background-color: white;
+  text-align: center;
+  color: black;
+  border-radius: 25px;
+  font-size: 15px;
+}
+
+.excp{
+  text-align: left;
+
+}
+
+</style>

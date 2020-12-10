@@ -2,8 +2,13 @@
 <html>
 <head>
 	<title>Settings</title>
+	<link rel="stylesheet" href="{{url_for('static', filename = "dashboard_style.css")}}">
+	<link rel="stylesheet" href="{{url_for('static', filename = "register_form_style.css")}}">
+
+	
 </head>
 <body>
+	 
 	    <!--header area start-->
     {% include 'layouts/header.html' %}
     <!--header area end-->
@@ -12,59 +17,69 @@
     <!--sidebar end-->
     
     <!--main body-->
-    <form action= '/individual_form_submit' method ='post'>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert"> {{message}}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block body %}{% endblock %}
+
+    <form action= '/dashboard/settings/update' method ='post'>
   <div class="container" >
-    <h1 class="excp">Register as an Individual </h1>
-    <p>Please fill this form to register with National Digital Health Portal.</p>
     <hr>
+
+    <label for="pd" class="head"><b><h1><U>Change Account Settings for  - {{current_user.id}}</U></h1></b></label><br>
+    <br>
+
+    <label for="upd_pasw"><b>Update Password:</b></label>
+    <input type="text" id="upd_pasw" name="upd_pasw" placeholder= "Enter New Password"><br>
 
     <label for="pd" class="head"><b><h2>Personal Details</h2></b></label><br>
     <label for="fname"><b>First Name<font color="red">*</font>:</b></label>
-    <input type="text" id="fname" placeholder="Enter First Name" name="fname" required>
+    <input type="text" id="fname" placeholder="Enter First Name" name="fname"   onchange = "update_data()" value = "{{current_user.fname}}" required>
 
     <label for="lname"><b>Last Name<font color="red">*</font>:</b></label>
-    <input type="text" id="lname" name="lname" placeholder= "Enter Last Name"required><br>
-
-    <label for="email"><b>Email<font color="red">*</font>:</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
-
-    <label for="mob"><b>Mobile Number<font color="red">*</font>:</b></label>
-    <input type="text" id="mob" name="mob" placeholder="Enter Mobile Number" pattern="[0-9]{10}" required><br>
+    <input type="text" id="lname" name="lname" placeholder= "Enter Last Name"   onchange = "update_data()" value = "{{current_user.lname}}" required><br>
 
     <label for="dob"><b>Date of Birth<font color="red">*</font>:</b> </label>
-    <input type="date" id="dob" name="dob" required>
+    <input type="date" id="dob" name="dob" value = "{{current_user.dob}}"   onchange = "update_data()" required>
+
+    <label for="mob"><b>Mobile Number<font color="red">*</font>:</b></label>
+    <input type="text" id="mob" name="mob" placeholder="Enter Mobile Number" pattern="[0-9]{10}"   onchange = "update_data()" value = "{{current_user.mob}}" required><br>
+
+        <label for="blood"><b>Blood Group<font color="red">*</font> - </b></label>
+    <select id="blood" name="blood" required  onchange = "update_data()" >
+      <option value = "{{current_user.blood}}" disabled selected>{{current_user.blood}}</option>
+      <option value="O+">O+</option>
+      <option value="O-">O-</option>
+      <option value="A+">A+</option>
+      <option value="A-">A-</option>
+      <option value="B+">B+</option>
+      <option value="B-">B-</option>
+      <option value="AB+">AB+</option>
+      <option value="AB-">AB-</option>
+    </select>
 
     <label for="gender"><b>Gender<font color="red">*</font> - </b></label>
-    <select id="gender" name="gender" required>
-      <option value="" disabled selected>Choose Gender</option>
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-      <option value="others">Others</option>
+    <select id="gender" name="gender" required onchange = "update_data()" >
+      <option value = "{{current_user.gender}}" disabled selected>{{current_user.gender}}</option>
+      <option value="Male">Males</option>
+      <option value="Female">Female</option>
+      <option value="Others">Others</option>
     </select>
 
-    <label for="aadhaar"><b>Aadhaar Card Number<font color="red">*</font>:</b></label>
-    <input type="text" id="aadhaar" name="aadhaar" placeholder = "Enter Aadhaar Card Number" pattern="[0-9]{12}" required>
 
-    <label for="blood"><b>Blood Group<font color="red">*</font> - </b></label>
-    <select id="blood" name="blood" required>
-      <option value="" disabled selected>Choose Blood Group</option>
-      <option value="op">O+</option>
-      <option value="on">O-</option>
-      <option value="ap">A+</option>
-      <option value="an">A-</option>
-      <option value="bp">B+</option>
-      <option value="bn">B-</option>
-      <option value="abp">AB+</option>
-      <option value="abn">AB-</option>
-    </select>
-    <font color="red">*</font>
+
     <br><br>
     <label for="add"><b><h2>Address</h2></b></label><br>
 
     <label for="state"><b>State<font color="red">*</font>:</b></label>
     <select name="state" id="countrySelect" size="1" onchange ="makeSubmenu(this.value)">
 
-      <option value="" disabled selected>Choose State</option>
+      <option value = "{{current_user.state}}" disabled selected>{{current_user.state}}</option>
       <option value="ANDAMANANDNICOBARISLANDS">Andaman and Nicobar Islands</option>
       <option value="AndhraPradesh">Andhra Pradesh</option>
       <option value="ArunachalPradesh">Arunachal Pradesh</option> <!-- to de added -->
@@ -112,32 +127,31 @@
 
     <label for ="city"><b>City<font color="red">*</font>:</b></label>
     <select name="city" id="citySelect" size="1" >
-          <option value="" disabled selected>Choose City</option>
+          <option value="" disabled   onchange = "update_data()" selected value = "{{current_user.city}}">{{current_user.city}}</option>
     </select>
 
     <label for="district"><b>District<font color="red">*</font>:</b></label>
-    <input type="text" id="district" placeholder="Enter District" name="district" required>
+    <input type="text" id="district" placeholder="Enter District" name="district"  onchange = "update_data()"  required value = "{{current_user.district}}">
 
     <label for="pincode" class="add"><b>Pincode<font color="red">*</font>:</b></label>
-    <input type="text" class="add" id="pincode" placeholder="Enter Pincode" name="pincode" pattern="[0-9]{6}" required><br>
+    <input type="text" class="add" id="pincode" placeholder="Enter Pincode" name="pincode" pattern="[0-9]{6}" value = "{{current_user.pin}}"   onchange = "update_data()" required><br>
 
     <label for="add1"><b>Address line 1<font color="red">*</font>:</b></label>
-    <input type="text" id="add1" placeholder="Enter Complete Address" name="add1" required>
+    <input type="text" id="add1" placeholder="Enter Complete Address" name="add1"  onchange = "update_data()" value = "{{current_user.addr1}}"   onchange = "update_data()" required>
 
     <label for="add2"><b>Address line 2:</b></label>
-    <input type="text" id="add2" placeholder="Enter Complete Address" name="add2">
+    <input type="text" id="add2" placeholder="Enter Complete Address" name="add2" onchange = "update_data()" value = "{{current_user.addr2}}">
 
 
     <hr>
     <input type="checkbox" id="decl" name="decl" value="decl" required>
     <label for="decl" class="excp"> I hereby declare that the details furnished above are true and correct to the best of my knowledge and belief.</label><br>
 
-    <button type="submit" class="registerbtn" id="reg_but">Submit</button>
-  </div>
+    <button type="submit" class="registerbtn" id="update" disabled>Update</button>
 
-  <div class="signin">
-    <p >Already have an account? <a href="../login">Sign in</a>.</p>
   </div>
 </form>
 </body>
+
+	<script src = {{url_for('static', filename="script_settings.js")}}></script>
 </html>

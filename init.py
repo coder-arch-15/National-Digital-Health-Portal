@@ -18,6 +18,7 @@ conn.execute('''CREATE TABLE IF NOT EXISTS HOSPITALS (NAME VARCHAR (100), MOB TE
 conn.execute('''CREATE TABLE if not exists "labs" ( id varchar (20) primary key not null, "licenseno" VARCHAR(15) NOT NULL, "pasw" VARCHAR NOT NULL, "labname" TEXT,ownername varchar(60), "tests_avlbl" TEXT, "email" TEXT, "mob" TEXT, "state" TEXT, "city" TEXT, "district" TEXT, "pin" TEXT, "addr1" TEXT, "addr2" TEXT )''')
 conn.close()
 
+
 def create_app():
     """Initialize the core application."""
     app = Flask(__name__, instance_relative_config=False)
