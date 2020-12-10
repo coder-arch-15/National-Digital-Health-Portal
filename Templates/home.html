@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <title>NDHP</title>
+<!-- Icon picture  -->
+<!-- it dosen't work and i dont know why -->
+<link rel = "icon" type = "image/png" href = "/icon.png">
+<!-- icon picture ends -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -33,18 +37,15 @@
     line-height: 27px
   }
 
-  
+
   </style>
 </head>
 <body id="myPage">
 
 <!-- Sidebar on click -->
-
-
 {% include 'home_layouts/header.html' %}
-
-
 <!-- Navbar -->
+<div id = "header_buttons">
 <div class="w3-container">
  <div class="w3-bar w3-theme-d2 w3-left-align">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
@@ -63,7 +64,7 @@
   </div>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a>
  </div>
-
+</div>
 
 
 <!-- Team Container -->
@@ -112,7 +113,7 @@
       <p>"...let me congratulate you on the choice of calling which offers a combination of intellectual and moral interests found in no other profession."
 
   </p>
-      <footer class="blockquote-footer">  ― Sir William Olser (1849 - 1919)<cite title="Source Title"></cite></footer>
+      <p class="blockquote-footer">  ― Sir William Olser (1849 - 1919)<cite title="Source Title"></cite></p>
     </blockquote>
   </div>
 </div>
@@ -123,13 +124,12 @@
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
-      <p>“I remind my fellows, residents and medical students that what we do is a privilege. People let us into the most intimate aspects of their lives, and they look to us to help guide them through very complex and delicate situations.”
-
-    </p>
-      <footer class="blockquote-footer">― Shikha Jain, MD via KevinMD<cite title="Source Title"></cite></footer>
+      <p>“I remind my fellows, residents and medical students that what we do is a privilege. People let us into the most intimate aspects of their lives, and they look to us to help guide them through very complex and delicate situations.”</p>
+      <p class="blockquote-footer">― Shikha Jain, MD via KevinMD<cite title="Source Title"></cite></p>
     </blockquote>
   </div>
 </div>
+
 
 <div class="card">
   <div class="card-header">
@@ -137,23 +137,16 @@
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
-      <p>"[Being a doctor] offers the most complete and constant union of those three qualities which have the greatest charm for pure and active minds – novelty, utility, and charity."
-
-    </p>
-      <footer class="blockquote-footer">― Sir James Paget (1814 - 1899)<cite title="Source Title"></cite></footer>
+      <p>"[Being a doctor] offers the most complete and constant union of those three qualities which have the greatest charm for pure and active minds – novelty, utility, and charity."</p>
+      <p class="blockquote-footer">― Sir James Paget (1814 - 1899)<cite title="Source Title"></cite></p>
     </blockquote>
   </div>
 </div>
-
 </div>
 <!-- Footer code starts-->
-{% include 'home_layouts/footer.html' %} 
+{% include 'home_layouts/footer.html' %}
 <!-- Footer code ends-->
-
 </div>
-
-
-
 
 <script>
 // Script for side navigation
