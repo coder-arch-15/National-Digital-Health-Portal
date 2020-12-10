@@ -5,7 +5,7 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 import new_user_credentials as nuc
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import current_app as app
-from models import individual
+from models import individual,labs
 #from models import doctor
 from flask_mail import Mail, Message
 from PIL import Image, ImageDraw
@@ -166,9 +166,9 @@ def lab_form_sub():
 			addr1=request.form['add1']
 			addr2=request.form['add2']
 
-			nu = lc.Labs(city, dob)
-			id,pasw = #to be added
-			temp = individual(id = id, licenseno=licenseno, pasw=generate_password_hash(pasw) ,
+			#nu = lc.Labs(city, dob)
+			id,pasw = "GWLLAB1","password"
+			temp = labs(id = id, licenseno=licenseno, pasw=generate_password_hash(pasw) ,
 				labname=lab_name, tests_avlbl =tests_avlbl, email=email, mob =mob,
 				state=state, city=city, district=district, pin=pin, addr1=addr1, addr2=addr2 )
 			db.session.add(temp)
