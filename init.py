@@ -15,7 +15,7 @@ conn.execute('''CREATE TABLE if not exists doctor( id varchar(10) PRIMARY KEY, p
 conn.execute('''CREATE TABLE IF NOT EXISTS LAB_EVENTS (USER_ID varchar(12) PRIMARY KEY NOT NULL, DR_LAB_ID varchar(12) NOT NULL, DATE TEXT NOT NULL , hosptial varchar(30) not null, desc varchar(100));''')
 conn.execute('''CREATE TABLE if not exists "individual" ( "id" TEXT NOT NULL, "pasw" TEXT NOT NULL, "fname" TEXT, "lname" TEXT, "email" TEXT, "mob" TEXT, "dob" TEXT, "gender" TEXT, "aadhaar" TEXT, "blood" , "state" TEXT, "city" TEXT, "district" TEXT, "pin" TEXT, "addr1" TEXT, "addr2" TEXT, PRIMARY KEY("id") )''')
 conn.execute('''CREATE TABLE IF NOT EXISTS HOSPITALS (NAME VARCHAR (100), MOB TEXT, "state" TEXT, "city" TEXT, "district" TEXT, "pin" TEXT, "addr1" TEXT, "addr2" TEXT) ''')
-conn.execute('''CREATE TABLE if not exists "labs" ( "licenseno" VARCHAR(15) NOT NULL, "pasw" VARCHAR NOT NULL, "labname" TEXT, "tests_avlbl" TEXT, "email" TEXT, "mob" TEXT, "state" TEXT, "city" TEXT, "district" TEXT, "pin" TEXT, "addr1" TEXT, "addr2" TEXT, PRIMARY KEY("licenseno") )''')
+conn.execute('''CREATE TABLE if not exists "labs" ( id varchar (20) primary key not null, "licenseno" VARCHAR(15) NOT NULL, "pasw" VARCHAR NOT NULL, "labname" TEXT, "tests_avlbl" TEXT, "email" TEXT, "mob" TEXT, "state" TEXT, "city" TEXT, "district" TEXT, "pin" TEXT, "addr1" TEXT, "addr2" TEXT )''')
 conn.close()
 
 def create_app():
