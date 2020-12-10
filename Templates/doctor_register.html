@@ -40,7 +40,9 @@ input[type=checkbox]{
   width:10px;
   margin-right: 10px;
 }
-
+#gen_uid{
+  padding-left: 12px;
+}
 .excp{
   width: 900px;
 }
@@ -116,12 +118,11 @@ a {
     <hr>
 
     <label for="pd" class="head"><b><h2>Personal Details</h2></b></label><br>
-    <label for="fname"><b>First Name<font color="red">*</font>:</b></label>
-    <input type="text" id="fname" placeholder="Enter First Name" name="fname" required>
-
-    <label for="lname"><b>Last Name<font color="red">*</font>:</b></label>
-    <input type="text" id="lname" name="lname" placeholder= "Enter Last Name"required><br>
-
+    <label for="uid"><b>Enter your Unique Id<font color="red">*</font>:</b></label>
+    <input type="text" id="uid" placeholder="Enter Unique Id" name="uid" required>
+<div id = "gen_uid">
+    <label for="lname"><b><font color="red"><a href = "/individual_register">Generate Unique Id?</a></font></b></label>
+</div>
     <label for="email"><b>Email<font color="red">*</font>:</b></label>
     <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
