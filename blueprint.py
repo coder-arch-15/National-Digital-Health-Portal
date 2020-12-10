@@ -11,8 +11,7 @@ from flask_mail import Mail, Message
 from PIL import Image, ImageDraw
 import qrcode
 
-#SAkshi test
-#Eshan test
+#SAkshi testkkkk
 main_bp = Blueprint('main_bp', __name__)
 
 login_manager = LoginManager()
