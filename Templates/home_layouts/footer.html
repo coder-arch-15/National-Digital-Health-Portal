@@ -1,478 +1,222 @@
 <style type="text/css">
-/* footer code */
-  *, *:before, *:after {
-  box-sizing: border-box;
-  }
-
-  html {
-  font-size: 100%;
-  }
-
-  body {
-  font-family: acumin-pro, system-ui, sans-serif;
-  margin: 0;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  font-size: 14px;
-  background-color: #f4f4f4;
-  align-items: start;
-  min-height: 100vh;
-  }
-  #wrap
-  {
-  	width: 100%;
-  	height: 100%;
-  	position: relative;
-  	margin: 0 auto 0 auto;
-  	overflow: hidden;
-  }
-
-  #lightings
-  {
-  	bottom: -60px;
-  	position: absolute;
-  	width: 100%;
-  }
-
-  section
-  {
-  	/*border-radius*/
-  	-webkit-border-radius: 50%;
-  	-moz-border-radius: 50%;
-  	border-radius: 50%;
-  	height: 20px;
-  	width: 100%;
-  	position: relative;
-  	margin: auto;
-
-  }
-
-  #one
-  {
-  	/*animation*/
-  	-webkit-animation: one 5s ease-in-out infinite alternate;
-  	-moz-animation: one 5s ease-in-out infinite alternate;
-  	-ms-animation: one 5s ease-in-out infinite alternate;
-  	-o-animation: one 5s ease-in-out infinite alternate;
-  	animation: one 5s ease-in-out infinite alternate;
-  }
-  @-webkit-keyframes
-  one { from {
-  -webkit-box-shadow: 0 0 250px 20px #473C78;
-  }
-
-  to { -webkit-box-shadow: 0 0 100px 15px #F72A3B; }
-  }
-  @-moz-keyframes
-  one { from {
-  -moz-box-shadow: 0 0 250px 20px #473C78;
-  }
-
-  to { -moz-box-shadow: 0 0 100px 15px #F72A3B; }
-  }
-  @-o-keyframes
-  one { from {
-  -o-box-shadow: 0 0 250px 20px #473C78;
-  }
-
-  to { -o-box-shadow: 0 0 100px 15px #F72A3B; }
-  }
-
-  @keyframes
-  one { from {
-  box-shadow: 0 0 250px 20px #473C78;
-  }
-
-  to {box-shadow: 0 0 100px 15px #F72A3B; }
-  }
-
-  #two
-  {
-  	width: 90%;
-  	/*animation*/
-  	-webkit-animation: two 4s ease-in-out infinite alternate;
-  	-moz-animation: two 4s ease-in-out infinite alternate;
-  	-ms-animation: two 4s ease-in-out infinite alternate;
-  	-o-animation: two 4s ease-in-out infinite alternate;
-  	animation: two 4s ease-in-out infinite alternate;
-  }
-  @-webkit-keyframes
-  two { from {
-  -webkit-box-shadow: 0 0 250px 20px #18C499;
-  }
-
-  to { -webkit-box-shadow: 0 0 100px 15px #D8F05E; }
-  }
-  @-moz-keyframes
-  two { from {
-  -moz-box-shadow: 0 0 250px 20px #18C499;
-  }
-
-  to { -moz-box-shadow: 0 0 100px 15px #D8F05E; }
-  }
-  @-o-keyframes
-  two { from {
-  -o-box-shadow: 0 0 250px 20px #18C499;
-  }
-
-  to { -o-box-shadow: 0 0 100px 15px #D8F05E; }
-  }
-
-  @keyframes
-  two { from {
-  box-shadow: 0 0 250px 20px #18C499;
-  }
-
-  to { box-shadow: 0 0 100px 15px #D8F05E; }
-  }
-
-  #three
-  {
-  	width: 80%;
-  	/*animation*/
-  	-webkit-animation: three 3s ease-in-out infinite alternate;
-  	-moz-animation: three 3s ease-in-out infinite alternate;
-  	-ms-animation: three 3s ease-in-out infinite alternate;
-  	-o-animation: three 3s ease-in-out infinite alternate;
-  	animation: three 3s ease-in-out infinite alternate;
-  }
-  @-webkit-keyframes
-  three { from {
-  -webkit-box-shadow: 0 0 250px 20px #FFDD00;
-  }
-
-  to { -webkit-box-shadow: 0 0 100px 15px #3E33FF; }
-  }
-  @-moz-keyframes
-  three { from {
-  -moz-box-shadow: 0 0 250px 20px #FFDD00;
-  }
-
-  to { -moz-box-shadow: 0 0 100px 15px #3E33FF }
-  }
-  @-o-keyframes
-  three { from {
-  -o-box-shadow: 0 0 250px 20px #FFDD00;
-  }
-
-  to { -o-box-shadow: 0 0 100px 15px #3E33FF }
-  }
-
-  @keyframes
-  three { from {
-  box-shadow: 0 0 250px 20px #FFDD00;
-  }
-
-  to { box-shadow: 0 0 100px 15px #3E33FF }
-  }
-
-  #four
-  {
-  	width: 70%;
-  	/*animation*/
-  	-webkit-animation: four 2s ease-in-out infinite alternate;
-  	-moz-animation: four 2s ease-in-out infinite alternate;
-  	-ms-animation: four 2s ease-in-out infinite alternate;
-  	-o-animation: four 2s ease-in-out infinite alternate;
-  	animation: four 2s ease-in-out infinite alternate;
-  }
-  @-webkit-keyframes
-  four { from {
-  -webkit-box-shadow: 0 0 250px 20px #781848;
-  }
-
-  to { -webkit-box-shadow: 0 0 100px 15px #F2BBE9; }
-  }
-  @-moz-keyframes
-  four { from {
-  -moz-box-shadow: 0 0 250px 20px #781848;
-  }
-
-  to { -moz-box-shadow: 0 0 100px 15px #F2BBE9; }
-  }
-  @-o-keyframes
-  four { from {
-  -o-box-shadow: 0 0 250px 20px #781848;
-  }
-
-  to { -o-box-shadow: 0 0 100px 15px #F2BBE9; }
-  }
-
-  @keyframes
-  four { from {
-  shadow: 0 0 250px 20px #781848;
-  }
-
-  to { shadow: 0 0 100px 15px #F2BBE9; }
-  }
-
-  #five
-  {
-  	width: 60%;
-  	/*animation*/
-  	-webkit-animation: five 1s ease-in-out infinite alternate;
-  	-moz-animation: five 1s ease-in-out infinite alternate;
-  	-ms-animation: five 1s ease-in-out infinite alternate;
-  	-o-animation: five 1s ease-in-out infinite alternate;
-  	animation: five 1s ease-in-out infinite alternate;
-  }
-  @-webkit-keyframes
-  five { from {
-  -webkit-box-shadow: 0 0 250px 20px #42F2A1;
-  }
-
-  to { -webkit-box-shadow: 0 0 100px 15px #F4F6AD; }
-  }
-  @-moz-keyframes
-  five { from {
-  -moz-box-shadow: 0 0 250px 20px #42F2A1;
-  }
-
-  to { -moz-box-shadow: 0 0 100px 15px #F4F6AD; }
-  }
-  @-o-keyframes
-  five { from {
-  -o-box-shadow: 0 0 250px 20px #42F2A1;
-  }
-
-  to { -o-box-shadow: 0 0 100px 15px #F4F6AD; }
-  }
-
-  @keyframes
-  five { from {
-  box-shadow: 0 0 250px 20px #42F2A1;
-  }
-
-  to { box-shadow: 0 0 100px 15px #F4F6AD; }
-  }
-  .footer {
-  display: flex;
-  flex-flow: row wrap;
-  padding: 30px 30px 20px 30px;
-  color: #2f2f2f;
-  background-color: #000;
-  border-top: 1px solid #e5e5e5;
-  }
-
-  .footer > * {
-  flex:  1 100%;
-  }
-
-  .footer__addr {
-  margin-right: 1.25em;
-  margin-bottom: 2em;
-  }
-
-  .footer__logo {
-  font-family: 'Pacifico', cursive;
-  font-weight: 400;
-  font-size: 1.5rem;
-  }
-
-  .footer__addr h2 {
-  margin-top: 1.3em;
-  font-size: 15px;
-  font-weight: 400;
-  }
-
-  .nav__title {
-  font-weight: 400;
-  font-size: 15px;
-  }
-
-  .footer address {
-  font-style: normal;
-  color: #999;
-  }
-
-  .footer__btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 36px;
-  max-width: max-content;
-  background-color: rgb(33, 33, 33, 0.07);
-  border-radius: 100px;
-  color: #2f2f2f;
-  line-height: 0;
-  margin: 0.6em 0;
-  font-size: 1rem;
-  padding: 0 1.3em;
-  }
-
-  .footer ul {
-  list-style: none;
-  padding-left: 0;
-  }
-
-  .footer li {
-  line-height: 2em;
-  }
-
-  .footer a {
-  text-decoration: none;
-  }
-
-  .footer__nav {
-  display: flex;
-  flex-flow: row wrap;
-  }
-
-  .footer__nav > * {
-  flex: 1 50%;
-  margin-right: 1.25em;
-  }
-
-  .nav__ul a {
-  color: #999;
-  }
-
-  .nav__ul--extra {
-  column-count: 2;
-  column-gap: 1.25em;
-  }
-
-  .legal {
-  display: flex;
-  flex-wrap: wrap;
-  color: #999;
-  }
-
-  .legal__links {
-  display: flex;
-  align-items: center;
-  }
-
-  .heart {
-  color: #2f2f2f;
-  }
-
-  @media screen and (min-width: 24.375em) {
-  .legal .legal__links {
-  margin-left: auto;
-  }
-  }
-
-  @media screen and (min-width: 40.375em) {
-  .footer__nav > * {
-  flex: 1;
-  }
-
-  .nav__item--extra {
-  flex-grow: 2;
-  }
-
-  .footer__addr {
-  flex: 1 0px;
-  }
-
-  .footer__nav {
-  flex: 2 0px;
-  }
-  }
-  /* footer code ends*/
+  @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
+body{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight:300;
+  background-color:lightblue;
+  color:#FFF;
+}
+section{
+  text-align:center;
+}
+         /* -------------------------- */
+footer {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  div.social-media-links {
+		background: @rhino;
+		overflow: hidden;
+		padding-bottom: 4px;
+		text-align: center;
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+		li {
+			display: inline;
+			margin: 0;
+			padding: 0;
+		}
+		a {
+			border-bottom: 0px solid rgba(0,0,0,0.95);
+			border-radius: 4px;
+			box-shadow: inset 0 -3px 0 0 rgba(0,0,0,0), 0 6px 8px rgba(0,0,0,0), 0 24px 24px rgba(0,0,0,0), 0 36px 36px rgba(0,0,0,0), 0 64px 64px rgba(0,0,0,0), 0 64px 128px rgba(0,0,0,0), 0 120px 0 rgba(0,0,0,0), 0 86px 8px 6px rgba(0,0,0,0),;
+			display: inline-block;
+      height: 30px;
+			padding: 20px;
+			position: relative;
+			transition: .2s ease-in;
+      width: 30px;
+			svg {
+        left: 20px;
+        position: absolute;
+        top: 20px;
+				height: 30px;
+				width: 30px;
+        &.glow {
+          path, circle {
+            fill: rgba(0,0,0,0);
+          }
+        }
+				path, circle {
+					fill: @teal;
+					transition: .2s ease-in;
+				}
+			}
+		}
+		a:hover {
+			transform: translateY(-4px);
+			box-shadow: inset 0 -3px 0 0 rgba(0,0,0,0.1), 0 6px 8px rgba(0,0,0,0.05), 0 24px 24px rgba(0,0,0,0.05), 0 36px 36px rgba(0,0,0,0.05), 0 64px 64px rgba(0,0,0,0.15), 0 64px 128px rgba(0,0,0,0.15), 0 86px 8px 6px fadeout(@tealMid, 75), 0 83px 4px 0px fadeout(@tealMid, 5);
+			svg {
+        &.glow {
+          filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><f…ter id="filter"><feGaussianBlur stdDeviation="10" /></filter></svg>#filter');
+          filter: blur(2px);
+          path, circle {
+            fill: fadeout(@tealMid, 40);
+          }
+        }
+				path, circle {
+					fill: @tealMid;
+				}
+			}
+		}
+	}
+}
+/* ----------------------------------- */
+.footer #button{
+	width:35px;
+	height:35px;
+	border: #727172 12px solid;
+	border-radius:35px;
+	margin:0 auto;
+	position:relative;
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.footer #button:hover{
+	width:35px;
+	height:35px;
+	border: #3A3A3A 12px solid;
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+	position:relative;
+}
+.footer {
+	bottom:0;
+	left:0;
+	position:fixed;
+    width: 100%;
+    height: 2em;
+    overflow:hidden;
+    margin:0 auto;
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+	z-index:999;
+}
+.footer:hover {
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+	height: 10em;
+}
+.footer #container{
+	margin-top:5px;
+	width:100%;
+height:100%;
+  position:relative;
+  top:0;
+  left:0;
+	background: #3A3A3A;
+}
+.footer #cont{
+  position:relative;
+  top:-45px;
+  right:190px;
+	width:150px;
+	height:auto;
+	margin:0 auto;
+}
+.footer_center{
+	width:500px;
+	float:left;
+  text-align:center;
+}
+.footer h3{
+	font-family: 'Helvetica';
+	font-size: 30px;
+	font-weight: 100;
+	margin-top:70px;
+	margin-left:40px;
+}
 </style>
-<a id = "contact"></a>
-<article id="wrap">
-	<article id="lightings">
-    	<section id="one">
-            <section id="two">
-                <section id="three">
-                    <section id="four">
-                        <section id="five">
-                          <footer class="footer">
-                            <div class="footer__addr">
-                              <h1 class="footer__logo">♥♥Minor Project♥♥</h1>
-
-                              <h2>Contact</h2>
-
-                              <address>
-                                Race Course Road, Gola ka Mandir, Gwalior - 474005, Madhya Pradesh, India<br>
-
-                                <a class="footer__btn" href="mailto:director@gmail.in">Email Us</a>
-                              </address>
-                            </div>
-
-                            <ul class="footer__nav">
-                              <li class="nav__item">
-                                <h2 class="nav__title">Media</h2>
-
-                                <ul class="nav__ul">
-                                  <li>
-                                    <a href="#">Instagram</a>
-                                  </li>
-
-                                  <li>
-                                    <a href="#">Facebook</a>
-                                  </li>
-
-                                  <li>
-                                    <a href="#">Twitter</a>
-                                  </li>
-                                </ul>
-                              </li>
-
-                              <li class="nav__item nav__item--extra">
-                                <h2 class="nav__title">Technology</h2>
-
-                                <ul class="nav__ul nav__ul--extra">
-                                  <li>
-                                    <a href="#">Hardware Design</a>
-                                  </li>
-
-                                  <li>
-                                    <a href="#">Software Design</a>
-                                  </li>
-
-                                  <li>
-                                    <a href="#">Digital Signage</a>
-                                  </li>
-
-                                  <li>
-                                    <a href="#">Automation</a>
-                                  </li>
-
-                                  <li>
-                                    <a href="#">Artificial Intelligence</a>
-                                  </li>
-
-                                  <li>
-                                    <a href="#">IoT</a>
-                                  </li>
-                                </ul>
-                              </li>
-
-                              <li class="nav__item">
-                                <h2 class="nav__title">Legal</h2>
-
-                                <ul class="nav__ul">
-                                  <li>
-                                    <a href="#">Privacy Policy</a>
-                                  </li>
-
-                                  <li>
-                                    <a href="#">Terms of Use</a>
-                                  </li>
-
-                                  <li>
-                                    <a href="#">Sitemap</a>
-                                  </li>
-                                </ul>
-                              </li>
-                            </ul>
-
-                            <div class="legal">
-                              <p>&copy; 2020  All rights reserved.</p>
-
-                              <div class="legal__links">
-                                <span>Made with <span class="heart">♥</span>by Archit, Eshan and Sakshi</span>
-                              </div>
-                            </div>
-                          </footer>
-                        </section>
-                    </section>
-                </section>
-            </section>
-		</section>
-    </article>
-</article>
+<section>
+  <h1>Made by Archit,Sakshi and Eshan</h1>
+  <h3></h3>
+</section>
+<div class="footer">
+  <div id="button"></div>
+<div id="container">
+<div id="cont">
+<div class="footer_center">
+	   <h3>Minor Project</h3>
+     <!-- --------------------------------------------- -->
+    <div class="social-media-links">
+      <ul>
+        <li>
+          <!-- twitter -->
+          <a href="#">
+            <svg class="glow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+              <path class="st0" d="M9.5 27.1c11.2 0 17.4-9.3 17.4-17.4 0-0.3 0-0.5 0-0.8 1.2-0.9 2.2-1.9 3-3.2 -1.1 0.5-2.3 0.8-3.5 1 1.3-0.8 2.2-2 2.7-3.4 -1.2 0.7-2.5 1.2-3.9 1.5 -1.1-1.2-2.7-1.9-4.5-1.9 -3.4 0-6.1 2.7-6.1 6.1 0 0.5 0.1 0.9 0.2 1.4C9.7 10.1 5.2 7.7 2.2 4 1.7 4.9 1.4 6 1.4 7.1c0 2.1 1.1 4 2.7 5.1 -1 0-1.9-0.3-2.8-0.8 0 0 0 0.1 0 0.1 0 3 2.1 5.4 4.9 6 -0.5 0.1-1.1 0.2-1.6 0.2 -0.4 0-0.8 0-1.1-0.1 0.8 2.4 3 4.2 5.7 4.2 -2.1 1.6-4.7 2.6-7.6 2.6 -0.5 0-1 0-1.5-0.1C2.8 26.1 6 27.1 9.5 27.1"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+              <path class="st0" d="M9.5 27.1c11.2 0 17.4-9.3 17.4-17.4 0-0.3 0-0.5 0-0.8 1.2-0.9 2.2-1.9 3-3.2 -1.1 0.5-2.3 0.8-3.5 1 1.3-0.8 2.2-2 2.7-3.4 -1.2 0.7-2.5 1.2-3.9 1.5 -1.1-1.2-2.7-1.9-4.5-1.9 -3.4 0-6.1 2.7-6.1 6.1 0 0.5 0.1 0.9 0.2 1.4C9.7 10.1 5.2 7.7 2.2 4 1.7 4.9 1.4 6 1.4 7.1c0 2.1 1.1 4 2.7 5.1 -1 0-1.9-0.3-2.8-0.8 0 0 0 0.1 0 0.1 0 3 2.1 5.4 4.9 6 -0.5 0.1-1.1 0.2-1.6 0.2 -0.4 0-0.8 0-1.1-0.1 0.8 2.4 3 4.2 5.7 4.2 -2.1 1.6-4.7 2.6-7.6 2.6 -0.5 0-1 0-1.5-0.1C2.8 26.1 6 27.1 9.5 27.1"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <!-- facebook -->
+          <a href="#">
+            <svg class="glow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+              <path class="st0" d="M28.3 0.1H1.7c-0.9 0-1.6 0.7-1.6 1.6v26.5c0 0.9 0.7 1.6 1.6 1.6H16V18.4h-3.9v-4.5H16v-3.3c0-3.9 2.4-5.9 5.8-5.9 1.6 0 3.1 0.1 3.5 0.2v4l-2.4 0c-1.9 0-2.2 0.9-2.2 2.2v2.9h4.5l-0.6 4.5h-3.9v11.5h7.6c0.9 0 1.6-0.7 1.6-1.6V1.7C29.9 0.8 29.2 0.1 28.3 0.1z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+              <path class="st0" d="M28.3 0.1H1.7c-0.9 0-1.6 0.7-1.6 1.6v26.5c0 0.9 0.7 1.6 1.6 1.6H16V18.4h-3.9v-4.5H16v-3.3c0-3.9 2.4-5.9 5.8-5.9 1.6 0 3.1 0.1 3.5 0.2v4l-2.4 0c-1.9 0-2.2 0.9-2.2 2.2v2.9h4.5l-0.6 4.5h-3.9v11.5h7.6c0.9 0 1.6-0.7 1.6-1.6V1.7C29.9 0.8 29.2 0.1 28.3 0.1z"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <!-- youtube -->
+          <a href="#">
+            <svg class="glow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+              <path class="st0" d="M29.7 9c0 0-0.3-2.1-1.2-3 -1.1-1.2-2.4-1.2-3-1.3C21.3 4.5 15 4.5 15 4.5h0c0 0-6.3 0-10.5 0.3C3.9 4.8 2.6 4.8 1.5 6 0.6 6.9 0.3 9 0.3 9S0 11.4 0 13.9v2.3C0 18.6 0.3 21 0.3 21s0.3 2.1 1.2 3c1.1 1.2 2.6 1.2 3.3 1.3C7.2 25.5 15 25.6 15 25.6s6.3 0 10.5-0.3c0.6-0.1 1.9-0.1 3-1.3 0.9-0.9 1.2-3 1.2-3s0.3-2.4 0.3-4.9v-2.3C30 11.4 29.7 9 29.7 9zM11.9 18.9l0-8.4 8.1 4.2L11.9 18.9z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+              <path class="st0" d="M29.7 9c0 0-0.3-2.1-1.2-3 -1.1-1.2-2.4-1.2-3-1.3C21.3 4.5 15 4.5 15 4.5h0c0 0-6.3 0-10.5 0.3C3.9 4.8 2.6 4.8 1.5 6 0.6 6.9 0.3 9 0.3 9S0 11.4 0 13.9v2.3C0 18.6 0.3 21 0.3 21s0.3 2.1 1.2 3c1.1 1.2 2.6 1.2 3.3 1.3C7.2 25.5 15 25.6 15 25.6s6.3 0 10.5-0.3c0.6-0.1 1.9-0.1 3-1.3 0.9-0.9 1.2-3 1.2-3s0.3-2.4 0.3-4.9v-2.3C30 11.4 29.7 9 29.7 9zM11.9 18.9l0-8.4 8.1 4.2L11.9 18.9z"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <!-- instagram -->
+          <a href="#">
+            <svg class="glow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+              <path class="st0" d="M15 2.8c4 0 4.4 0 6 0.1 1.4 0.1 2.2 0.3 2.8 0.5 0.7 0.3 1.2 0.6 1.7 1.1 0.5 0.5 0.8 1 1.1 1.7C26.8 6.8 27 7.6 27.1 9c0.1 1.6 0.1 2 0.1 6s0 4.4-0.1 6c-0.1 1.4-0.3 2.2-0.5 2.8 -0.3 0.7-0.6 1.2-1.1 1.7 -0.5 0.5-1 0.8-1.7 1.1 -0.5 0.2-1.3 0.4-2.8 0.5 -1.6 0.1-2 0.1-6 0.1s-4.4 0-6-0.1c-1.4-0.1-2.2-0.3-2.8-0.5 -0.7-0.3-1.2-0.6-1.7-1.1 -0.5-0.5-0.8-1-1.1-1.7C3.2 23.2 3 22.4 2.9 21c-0.1-1.6-0.1-2-0.1-6s0-4.4 0.1-6C3 7.6 3.2 6.8 3.4 6.2 3.7 5.5 4 5.1 4.5 4.5c0.5-0.5 1-0.8 1.7-1.1C6.8 3.2 7.6 3 9 2.9 10.6 2.8 11 2.8 15 2.8M15 0.2c-4 0-4.5 0-6.1 0.1C7.3 0.3 6.2 0.6 5.3 0.9c-1 0.4-1.8 0.9-2.6 1.7C1.8 3.5 1.3 4.3 0.9 5.3c-0.4 0.9-0.6 2-0.7 3.6C0.2 10.5 0.1 11 0.1 15c0 4 0 4.5 0.1 6.1 0.1 1.6 0.3 2.7 0.7 3.6 0.4 1 0.9 1.8 1.7 2.6 0.8 0.8 1.7 1.3 2.6 1.7 0.9 0.4 2 0.6 3.6 0.7 1.6 0.1 2.1 0.1 6.1 0.1s4.5 0 6.1-0.1c1.6-0.1 2.7-0.3 3.6-0.7 1-0.4 1.8-0.9 2.6-1.7 0.8-0.8 1.3-1.7 1.7-2.6 0.4-0.9 0.6-2 0.7-3.6 0.1-1.6 0.1-2.1 0.1-6.1s0-4.5-0.1-6.1c-0.1-1.6-0.3-2.7-0.7-3.6 -0.4-1-0.9-1.8-1.7-2.6 -0.8-0.8-1.7-1.3-2.6-1.7 -0.9-0.4-2-0.6-3.6-0.7C19.5 0.2 19 0.2 15 0.2L15 0.2z"/>
+              <path class="st0" d="M15 7.4c-4.2 0-7.6 3.4-7.6 7.6s3.4 7.6 7.6 7.6 7.6-3.4 7.6-7.6S19.2 7.4 15 7.4zM15 20c-2.7 0-5-2.2-5-5s2.2-5 5-5c2.7 0 5 2.2 5 5S17.7 20 15 20z"/>
+              <circle class="st0" cx="22.9" cy="7.1" r="1.8"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+              <path class="st0" d="M15 2.8c4 0 4.4 0 6 0.1 1.4 0.1 2.2 0.3 2.8 0.5 0.7 0.3 1.2 0.6 1.7 1.1 0.5 0.5 0.8 1 1.1 1.7C26.8 6.8 27 7.6 27.1 9c0.1 1.6 0.1 2 0.1 6s0 4.4-0.1 6c-0.1 1.4-0.3 2.2-0.5 2.8 -0.3 0.7-0.6 1.2-1.1 1.7 -0.5 0.5-1 0.8-1.7 1.1 -0.5 0.2-1.3 0.4-2.8 0.5 -1.6 0.1-2 0.1-6 0.1s-4.4 0-6-0.1c-1.4-0.1-2.2-0.3-2.8-0.5 -0.7-0.3-1.2-0.6-1.7-1.1 -0.5-0.5-0.8-1-1.1-1.7C3.2 23.2 3 22.4 2.9 21c-0.1-1.6-0.1-2-0.1-6s0-4.4 0.1-6C3 7.6 3.2 6.8 3.4 6.2 3.7 5.5 4 5.1 4.5 4.5c0.5-0.5 1-0.8 1.7-1.1C6.8 3.2 7.6 3 9 2.9 10.6 2.8 11 2.8 15 2.8M15 0.2c-4 0-4.5 0-6.1 0.1C7.3 0.3 6.2 0.6 5.3 0.9c-1 0.4-1.8 0.9-2.6 1.7C1.8 3.5 1.3 4.3 0.9 5.3c-0.4 0.9-0.6 2-0.7 3.6C0.2 10.5 0.1 11 0.1 15c0 4 0 4.5 0.1 6.1 0.1 1.6 0.3 2.7 0.7 3.6 0.4 1 0.9 1.8 1.7 2.6 0.8 0.8 1.7 1.3 2.6 1.7 0.9 0.4 2 0.6 3.6 0.7 1.6 0.1 2.1 0.1 6.1 0.1s4.5 0 6.1-0.1c1.6-0.1 2.7-0.3 3.6-0.7 1-0.4 1.8-0.9 2.6-1.7 0.8-0.8 1.3-1.7 1.7-2.6 0.4-0.9 0.6-2 0.7-3.6 0.1-1.6 0.1-2.1 0.1-6.1s0-4.5-0.1-6.1c-0.1-1.6-0.3-2.7-0.7-3.6 -0.4-1-0.9-1.8-1.7-2.6 -0.8-0.8-1.7-1.3-2.6-1.7 -0.9-0.4-2-0.6-3.6-0.7C19.5 0.2 19 0.2 15 0.2L15 0.2z"/>
+              <path class="st0" d="M15 7.4c-4.2 0-7.6 3.4-7.6 7.6s3.4 7.6 7.6 7.6 7.6-3.4 7.6-7.6S19.2 7.4 15 7.4zM15 20c-2.7 0-5-2.2-5-5s2.2-5 5-5c2.7 0 5 2.2 5 5S17.7 20 15 20z"/>
+              <circle class="st0" cx="22.9" cy="7.1" r="1.8"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+     <!-- --------------------------------------------- -->
+       </div>
+</div>
+</div>
+</div>
