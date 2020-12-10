@@ -100,6 +100,11 @@ a {
   border-radius: 25px;
   font-size:20px;
 }
+
+.excp{
+  text-align: left;
+
+}
 </style>
 <!-- css ends here -->
 
@@ -112,8 +117,7 @@ a {
 
 <form action= '/individual_form_submit' method ='post'>
   <div class="container" >
-    <label class = 'head'><font size="25"><b>National Digital Health Portal</b></font></label>
-    <h1>Register as an Individual </h1>
+    <h1 class="excp">Register as an Individual </h1>
     <p>Please fill this form to register with National Digital Health Portal.</p>
     <hr>
 
@@ -146,7 +150,7 @@ a {
 
     <label for="blood"><b>Blood Group<font color="red">*</font> - </b></label>
     <select id="blood" name="blood" required>
-      <option value="" disabled selected>Choose Gender</option>
+      <option value="" disabled selected>Choose Blood Group</option>
       <option value="op">O+</option>
       <option value="on">O-</option>
       <option value="ap">A+</option>
