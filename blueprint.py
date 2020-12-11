@@ -8,9 +8,6 @@ from flask import current_app as app
 from models import individual,labs
 #from models import doctor
 from flask_mail import Mail, Message
-from PIL import Image, ImageDraw
-import qrcode
-import json
 
 main_bp = Blueprint('main_bp', __name__)
 
@@ -22,7 +19,6 @@ db = SQLAlchemy(app)
 db.create_all()
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-
 @login_manager.user_loader
 def load_user(user_id):
 	return individual.query.get(user_id)
@@ -32,14 +28,10 @@ def load_user(user_id):
 def home():
 	return render_template('home.html')
 
-@main_bp.route('/forgot_password')
-def forgot_pasw():
-	message = "Hi "+fname+" " +lname+"\nYour login credentials for National Digital Health Portal are - \nUsername - " + h_id + "\nPassword - " + pasw
-	msg = Message('NDHP Registration', sender = 'ndhp.gov@gmail.com', recipients = [email])
-	msg.body = message
-	mail.send(msg)
-	return render_template('login.html')
 
+@main_bp.route('/login')
+def login():
+	return render_template('login.html')
 
 
 @main_bp.route('/individual_register')
@@ -55,9 +47,9 @@ def hello_worl():
 def hello_world():
 	return render_template('doctor_register.html')
 
-@main_bp.route('/login')
-def login():
-	return render_template('login.html')
+#@main_bp.route('/login')
+#def login():
+	#return render_template('login.html')
 
 @main_bp.route('/dashboard') 		############Dashboard for individual
 @login_required
@@ -70,30 +62,7 @@ def dr_dashboard():
 	return render_template('doctor_dashboard.html', name = current_user.get_name())
 
 
-@main_bp.route('/login_submit', methods = ['GET', 'POST'])
-def login_submit():
-	if request.method == 'POST':
-		try:
-			username = request.form['username']
-			password = request.form['password']
-			temp = individual.query.filter_by(id = username).first()
-			if temp:
-				if (check_password_hash(temp.pasw ,password)):
-					login_user(temp)
-					return redirect(url_for('main_bp.dr_dashboard'))
-				else:
-					msg = "Incorrect"
-					flash("Incorrect Password")
-					return redirect(url_for('main_bp.login'))
-			else:
-				msg = "User not registered"
-				flash("User not registered!")
-				return redirect(url_for('main_bp.login'))
 
-		except Exception as e:
-			flash(e)
-			return render_template('login.html')
-			#msg = "Error in insert operation"
 
 
 
@@ -105,85 +74,7 @@ def logout():
 	return redirect(url_for('main_bp.home'))
 
 
-@main_bp.route('/individual_form_submit', methods = ['GET' , 'POST'])
-def sub():
-	if request.method == 'POST':
-		try:
-			fname = request.form['fname']
-			lname = request.form['lname']
-			email = request.form['email']
-			mob = request.form['mob']
-			dob = str(request.form['dob'])
-			gender = request.form['gender']
-			aadhaar = request.form['aadhaar']
-			blood = request.form['blood']
-			state = request.form['state']
-			city = request.form['city']
-			district = request.form['district']
-			pin = request.form['pincode']
-			addr1=request.form['add1']
-			addr2=request.form['add2']
 
-			nu = nuc.New_user(city, dob)
-			h_id, pasw = nu.create_user()
-			temp = individual(id=h_id, pasw=generate_password_hash(pasw) ,
-				fname=fname, lname =lname, email=email, mob =mob, dob=dob,gender=gender,aadhaar=aadhaar, blood=blood,
-				state=state, city=city, district=district, pin=pin, addr1=addr1, addr2=addr2 )
-			temp.send_pdf_indi()
-			db.session.add(temp)
-			db.session.commit()
-
-			thank_msg = "Record successfully added"
-			message = "Hi "+fname+" " +lname+"\nThank You for registering with National Digital Health Portal.\nYour login credentials are - \nUsername - " + h_id + "\nPassword - " + pasw
-			msg = Message('NDHP Registration', sender = 'ndhp.gov@gmail.com', recipients = [email])
-			msg.body = message
-			path = "C:\\minor_project\\static\\"
-			with app.open_resource("GFG.pdf") as fp:
-				msg.attach("GFG.pdf", "file/pdf", fp.read())
-			mail.send(msg)
-			return render_template('thank.html',namee=thank_msg)
-
-		except Exception as e:
-			msg = e
-			return render_template('thank.html',namee=msg)
-
-
-@main_bp.route('/labs_form_submit', methods = ['GET' , 'POST'])
-def lab_form_sub():
-	if request.method == 'POST':
-		try:
-			lab_name = request.form['lab_name']
-			tests_avlbl = request.form['tests_avlbl']
-			email = request.form['email']
-			mob = request.form['mob']
-			licenseno = request.form['licenseno']
-			owner_name=request.form['owner_name']
-			state = request.form['state']
-			city = request.form['city']
-			district = request.form['district']
-			pin = request.form['pincode']
-			addr1=request.form['add1']
-			addr2=request.form['add2']
-
-			#nu = lc.Labs(city, dob)
-			id,pasw = "GWLLAB1","password"
-			temp = labs(id = id, licenseno=licenseno, pasw=generate_password_hash(pasw) ,
-				labname=lab_name, tests_avlbl =tests_avlbl, email=email, mob =mob,
-				state=state, city=city, district=district, pin=pin, addr1=addr1, addr2=addr2 )
-			db.session.add(temp)
-			db.session.commit()
-
-			thank_msg = "Record successfully added"
-			message = "Hi "+lab_name+"\nThank You for registering with National Digital Health Portal.\nYour login credentials are - \nUsername - " + id + "\nPassword - " + pasw
-			msg = Message('NDHP Registration', sender = 'ndhp.gov@gmail.com', recipients = [email])
-			msg.body = message
-			mail.send(msg)
-			return render_template('thank.html',namee=thank_msg)
-
-		except Exception as e:
-			msg = e
-			return render_template('thank.html',namee=msg)
-            
 
 @main_bp.route('/dashboard/settings')		###########Dashboard settings for individual
 @login_required
