@@ -53,6 +53,7 @@ class individual(UserMixin, db.Model):
 
 
 
+
 #_____________Added by eshan___________
 
 class doctor(UserMixin, db.Model):

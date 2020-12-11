@@ -10,7 +10,7 @@ from models import individual,labs
 from flask_mail import Mail, Message
 from PIL import Image, ImageDraw
 import qrcode
-
+import json
 
 main_bp = Blueprint('main_bp', __name__)
 
@@ -191,38 +191,40 @@ def dashboard_settings():
 	return render_template('settings.html', )
 
 
-@main_bp.route('/dashboard/settings/update', methods = ["POST"])		###########Dashboard settings update  button route for individual
+@main_bp.route('/dashboard/settings/update', methods = ['GET','POST'])		###########Dashboard settings update  button route for individual
 @login_required
 def dashboard_settings_update():
 	if request.method == 'POST':
 		try:
-			x=db.session.query(Individual).get(current_user.id)
-			x.fname = request.form['fname']
-			x.lname = request.form['lname']
-			x.mob = request.form['mob']
-			x.dob = str(request.form['dob'])
-			x.gender = request.form['gender']
-			x.blood = request.form['blood']
-			x.state = request.form['state']
-			x.city = request.form['city']
-			x.district = request.form['district']
-			x.pin = request.form['pincode']
-			x.addr1=request.form['add1']
-			x.addr2=request.form['add2']
-			if(request.form['upd_pasw']):
-				x.pasw = generate_password_hash(request.form['upd_pasw'])
-			
-			db.session.commit()
+			current_user.fname = request.form['fname']
+			current_user.lname = request.form['lname']
+			current_user.mob = request.form['mob']
+			current_user.dob = str(request.form['dob'])
+			if(request.form.get('gender')):
+				current_user.gender = request.form['gender']
+			if(request.form.get('blood')):
+				current_user.blood = request.form['blood']
+			if(request.form.get('state')):
+				current_user.state = request.form['state']
+			if(request.form.get('city')):
+				current_user.city = request.form['city']
+			current_user.district = request.form['district']
+			current_user.pin = request.form['pincode']
+			current_user.addr1=request.form['add1']
+			current_user.addr2=request.form['add2']
+			if(request.form.get('upd_pasw')):
+				current_user.pasw = generate_password_hash(request.form['upd_pasw'])
 
-			thank_msg = "Record successfully added"
-			message = "Hi "+fname+" " +lname+"\nYour account information has been updated on National Digital Health Portal."
-			msg = Message('NDHP Registration', sender = 'ndhp.gov@gmail.com', recipients = [email])
+			message = "Hi "+current_user.fname+" " +current_user.lname+"\nYour account information has been updated on National Digital Health Portal."
+			msg = Message('NDHP Registration', sender = 'ndhp.gov@gmail.com', recipients = [current_user.email])
 			msg.body = message
+			db.session.merge(current_user)
+			db.session.commit()
 			mail.send(msg)
 			flash("Changes saved successfully!")
 			return redirect(url_for('main_bp.dashboard_settings'))
 
-		except Exception as e:
+		except Ecurrent_userception as e:
 			flash(e)
 			return redirect(url_for('main_bp.dashboard_settings'))
 

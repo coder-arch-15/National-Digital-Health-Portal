@@ -18,21 +18,22 @@
     
     <!--main body-->
 
-      {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          {% for message in messages %}
-            <div class="alert"> {{message}}</div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
-    {% block body %}{% endblock %}
+ 
 
     <form action= '/dashboard/settings/update' method ='post'>
   <div class="container" >
     <hr>
 
-    <label for="pd" class="head"><b><h1><U>Change Account Settings for  - {{current_user.id}}</U></h1></b></label><br>
-    <br>
+    <label for="pd" class="head"><b><h1><U>Change Account Settings for  - {{current_user.id}}</U></h1></b></label>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		{% for message in messages %}
+		<div class="alert"> {{message}}</div>
+		{% endfor %}
+		{% endif %}
+		{% endwith %}
+		{% block body %}{% endblock %}
+    <br><br>
 
     <label for="upd_pasw"><b>Update Password:</b></label>
     <input type="text" id="upd_pasw" name="upd_pasw" placeholder= "Enter New Password"><br>
