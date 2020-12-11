@@ -47,9 +47,6 @@ def hello_worl():
 def hello_world():
 	return render_template('doctor_register.html')
 
-#@main_bp.route('/login')
-#def login():
-	#return render_template('login.html')
 
 @main_bp.route('/dashboard') 		############Dashboard for individual
 @login_required
@@ -62,18 +59,12 @@ def dr_dashboard():
 	return render_template('doctor_dashboard.html', name = current_user.get_name())
 
 
-
-
-
-
 @main_bp.route('/logout')
 @login_required
 def logout():
 	logout_user()
 	msg = "You are logged out!"
 	return redirect(url_for('main_bp.home'))
-
-
 
 
 @main_bp.route('/dashboard/settings')		###########Dashboard settings for individual
