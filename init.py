@@ -4,7 +4,6 @@ from wtforms import StringField, PasswordField, BooleanField
 from flask_sqlalchemy  import SQLAlchemy
 from flask_mail import Mail, Message
 import sqlite3
-from pdf2 import send_pdf
 
 
 #send_pdf()
@@ -31,7 +30,7 @@ def create_app():
     app.config['MAIL_SERVER']='smtp.gmail.com'
     app.config['MAIL_PORT'] = 465
     app.config['MAIL_USERNAME'] = 'ndhp.gov@gmail.com'
-    app.config['MAIL_PASSWORD'] = '1234Test@'
+    app.config['MAIL_PASSWORD'] = '12345Test@'
     app.config['MAIL_USE_TLS'] = False
     app.config['MAIL_USE_SSL'] = True
 
