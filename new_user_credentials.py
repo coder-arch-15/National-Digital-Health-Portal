@@ -10,7 +10,7 @@ class New_user:
 	numCounter = 0
 	aplh1="A"
 	aplh2="A"
-	aplh3="A"
+	aplh3="D"
 	def __init__(self, city, dob):
 		New_user.numCounter+=1
 		if (New_user.numCounter==1000):
@@ -22,7 +22,7 @@ class New_user:
 				if(ord(New_user.aplh2)==123):
 					New_user.aplh2 = "A"
 					New_user.aplh3 = chr(ord(New_user.aplh3) + 1)
-		self.unique_id = New_user.Codes[city] + New_user.aplh3 + New_user.aplh2 + New_user.aplh1 + str(random.randint(1,99))
+		self.unique_id = "I"+New_user.Codes[city.upper()] + New_user.aplh3 + New_user.aplh2 + New_user.aplh1 + str(random.randint(1,99))
 		y,m,d = dob.split("-")
 		self.pasw = d+m+y
 
