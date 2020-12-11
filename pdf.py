@@ -15,6 +15,7 @@ pdf.set_font("Arial", "B", size = 15)
 title = 'NATIONAL DIGITAL HEALTH PORTAL'
 
     def header(self):
+    	 self.image('icon.png', 10, 8, 33)
         # Arial bold 15
         self.set_font('Arial', 'B', 15)
         # Calculate width of title and position
