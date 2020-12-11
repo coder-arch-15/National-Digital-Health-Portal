@@ -134,9 +134,12 @@ def sub():
 			db.session.commit()
 
 			thank_msg = "Record successfully added"
-			message = "Hi "+fname+" " +lname+"\nYour account information has been updated on National Digital Health Portal."
+			message = "Hi "+fname+" " +lname+"\nThank You for registering with National Digital Health Portal.\nYour login credentials are - \nUsername - " + h_id + "\nPassword - " + pasw
 			msg = Message('NDHP Registration', sender = 'ndhp.gov@gmail.com', recipients = [email])
 			msg.body = message
+			path = "C:\\minor_project\\static\\"
+			with app.open_resource("GFG.pdf") as fp:
+				msg.attach("GFG.pdf", "file/pdf", fp.read())
 			mail.send(msg)
 			return render_template('thank.html',namee=thank_msg)
 
@@ -212,7 +215,7 @@ def dashboard_settings_update():
 			db.session.commit()
 
 			thank_msg = "Record successfully added"
-			message = "Hi "+fname+" " +lname+"\nThank You for registering with National Digital Health Portal.\nYour login credentials are - \nUsername - " + h_id + "\nPassword - " + pasw
+			message = "Hi "+fname+" " +lname+"\nYour account information has been updated on National Digital Health Portal."
 			msg = Message('NDHP Registration', sender = 'ndhp.gov@gmail.com', recipients = [email])
 			msg.body = message
 			mail.send(msg)
@@ -222,3 +225,5 @@ def dashboard_settings_update():
 		except Exception as e:
 			flash(e)
 			return redirect(url_for('main_bp.dashboard_settings'))
+
+
