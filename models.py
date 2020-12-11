@@ -1,5 +1,6 @@
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from flask_sqlalchemy  import SQLAlchemy
+from fpdf import FPDF 
 
 # Globally accessible libraries
 db = SQLAlchemy()
@@ -26,6 +27,30 @@ class individual(UserMixin, db.Model):
 	def get_name(self):
 		name = self.fname + " " + self.lname
 		return name
+	def send_pdf_indi(self):
+		pdf = FPDF() 
+		  
+		# Add a page 
+		pdf.add_page() 
+		  
+		# set style and size of font  
+		# that you want in the pdf 
+		pdf.set_font("Arial", size = 15) 
+		  
+		# create a cell 
+		pdf.cell(200, 10, txt = "GeeksforGeeks",  
+		         ln = 1, align = 'C') 
+		  
+		# add another cell 
+		pdf.cell(200, 10, txt = "A Computer Science portal for geeks.", 
+		         ln = 2, align = 'C') 
+		pdf.cell(200,10, txt="name"+self.get_name(), ln=3, align='C')
+		  
+		# save the pdf with name .pdf 
+		data = self.get_name()+".pdf"
+		path = "C:\\minor_project\\static\\"
+		pdf.output(name=data,dest=path)    
+
 
 
 #_____________Added by eshan___________

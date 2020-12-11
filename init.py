@@ -4,7 +4,10 @@ from wtforms import StringField, PasswordField, BooleanField
 from flask_sqlalchemy  import SQLAlchemy
 from flask_mail import Mail, Message
 import sqlite3
+from pdf2 import send_pdf
 
+
+send_pdf()
 # Globally accessible libraries
 db = SQLAlchemy()
 SQLALCHEMY_TRACK_MODIFICATIONS = False

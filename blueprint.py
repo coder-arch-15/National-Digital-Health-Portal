@@ -129,6 +129,7 @@ def sub():
 			temp = individual(id=h_id, pasw=generate_password_hash(pasw) ,
 				fname=fname, lname =lname, email=email, mob =mob, dob=dob,gender=gender,aadhaar=aadhaar, blood=blood,
 				state=state, city=city, district=district, pin=pin, addr1=addr1, addr2=addr2 )
+			temp.send_pdf_indi()
 			db.session.add(temp)
 			db.session.commit()
 

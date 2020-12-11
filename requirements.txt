@@ -9,3 +9,4 @@ werkzeug
 blueprint
 pillow
 sqlite3
+fpdf

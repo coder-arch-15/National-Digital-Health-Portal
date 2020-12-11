@@ -9,7 +9,7 @@ pdf = FPDF('P', 'mm', 'A4'))
 pdf.add_page() 
   
 
-pdf.set_font("Arial", "B", size = 15)  
+#pdf.set_font("Arial", "B", size = 15)  
 
 
 title = 'NATIONAL DIGITAL HEALTH PORTAL'
