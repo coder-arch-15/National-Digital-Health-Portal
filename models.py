@@ -48,8 +48,8 @@ class individual(UserMixin, db.Model):
 		  
 		# save the pdf with name .pdf 
 		data = self.get_name()+".pdf"
-		path = "C:\\minor_project\\static\\"
-		pdf.output(name=data,dest=path)    
+		path = "C:\\minor_project\\static\\"+"GFG.pdf"
+		pdf.output(path, 'F')    
 
 
 

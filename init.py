@@ -7,7 +7,7 @@ import sqlite3
 from pdf2 import send_pdf
 
 
-send_pdf()
+#send_pdf()
 # Globally accessible libraries
 db = SQLAlchemy()
 SQLALCHEMY_TRACK_MODIFICATIONS = False
