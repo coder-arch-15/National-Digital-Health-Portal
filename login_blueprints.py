@@ -31,11 +31,17 @@ def login_submit():
 		try:
 			username = request.form['username']
 			password = request.form['password']
-			temp = individual.query.filter_by(id = username).first()
+			if(username[0]=="I"):
+				temp = individual.query.filter_by(id = username).first()
+			elif(username[0]=="D"):
+				temp = individual.query.filter_by(id = username).first()		####replace individual with doctor
+			else:
+				temp = individual.query.filter_by(id = username).first()		####replace individual with labs
+
 			if temp:
 				if (check_password_hash(temp.pasw ,password)):
 					login_user(temp)
-					return redirect(url_for('main_bp.dr_dashboard'))
+					return redirect(url_for('indi_dashboard_bp.dashboard'))
 				else:
 					msg = "Incorrect"
 					flash("Incorrect Password")
