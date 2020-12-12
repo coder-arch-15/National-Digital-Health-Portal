@@ -33,28 +33,49 @@ def login_submit():
 			password = request.form['password']
 			if(username[0]=="I"):
 				temp = individual.query.filter_by(id = username).first()
+				if temp:
+					if (check_password_hash(temp.pasw ,password)):
+						login_user(temp)
+						return redirect(url_for('indi_dashboard_bp.indi_dashboard'))
+					else:
+						msg = "Incorrect"
+						flash("Incorrect Password")
+						return redirect(url_for('main_bp.login'))
 			elif(username[0]=="D"):
 				temp = individual.query.filter_by(id = username).first()		####replace individual with doctor
-			else:
-				temp = individual.query.filter_by(id = username).first()		####replace individual with labs
+				if temp:
+					if (check_password_hash(temp.pasw ,password)):
+						login_user(temp)
+						return redirect(url_for('indi_dashboard_bp.indi_dashboard'))
+					else:
+						msg = "Incorrect"
+						flash("Incorrect Password")
+						return redirect(url_for('main_bp.login'))
 
-			if temp:
-				if (check_password_hash(temp.pasw ,password)):
-					login_user(temp)
-					return redirect(url_for('indi_dashboard_bp.dashboard'))
-				else:
-					msg = "Incorrect"
-					flash("Incorrect Password")
-					return redirect(url_for('main_bp.login'))
+			elif(username[0]=="L"):
+				temp = individual.query.filter_by(id = username).first()		####replace individual with labs
+				if temp:
+					if (check_password_hash(temp.pasw ,password)):
+						login_user(temp)
+						return redirect(url_for('indi_dashboard_bp.indi_dashboard'))
+					else:
+						msg = "Incorrect"
+						flash("Incorrect Password")
+						return redirect(url_for('main_bp.login'))
 			else:
-				msg = "User not registered"
-				flash("User not registered!")
+				msg = "Invalid User ID!"
+				flash("Invalid User ID!")
 				return redirect(url_for('main_bp.login'))
+
+			msg = "User not registered"
+			flash("User not registered!")
+			return redirect(url_for('main_bp.login'))
 
 		except Exception as e:
 			flash(e)
 			return render_template('login.html')
 			#msg = "Error in insert operation"
+
 
 @login_bp.route('/forgot_password')
 def forgot_pasw():
