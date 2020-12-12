@@ -8,5 +8,5 @@ flask-mail
 werkzeug
 blueprint
 pillow
-sqlite3
+pysqlite3
 fpdf
