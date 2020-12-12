@@ -25,16 +25,16 @@ def load_user(user_id):
 
 
 
-@indi_dashboard_bp.route('/dashboard') 		############Dashboard for individual
+@indi_dashboard_bp.route('/indi/dashboard') 		############Dashboard for individual
 @login_required
-def dashboard():
-	return render_template('dashboard.html', name = current_user.get_name())
+def indi_dashboard():
+	return render_template('indi_dashboard.html', name = current_user.get_name())
 
 
-@indi_dashboard_bp.route('/dashboard/individual/settings')		###########Dashboard settings for individual
+@indi_dashboard_bp.route('/indi/dashboard/settings')		###########Dashboard settings for individual
 @login_required
 def dashboard_settings():
-	return render_template('settings.html', )
+	return render_template('indi_settings.html', )
 
 
 @indi_dashboard_bp.route('/dashboard/settings/update', methods = ['GET','POST'])		###########Dashboard settings update  button route for individual
