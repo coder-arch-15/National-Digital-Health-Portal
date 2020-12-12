@@ -42,7 +42,9 @@ def create_app():
         import blueprint
         import login_blueprints
         import register_blueprints
+        import indi_dashboard_blueprints
         app.register_blueprint(blueprint.main_bp)
         app.register_blueprint(login_blueprints.login_bp)
         app.register_blueprint(register_blueprints.register_bp)
+        app.register_blueprint(indi_dashboard_blueprints.indi_dashboard_bp)
         return app
