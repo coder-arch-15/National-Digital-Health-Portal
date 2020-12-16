@@ -10,19 +10,25 @@ from flask_mail import Mail, Message
 
 indi_dashboard_bp = Blueprint('indi_dashboard_bp', __name__)
 
-login_manager = LoginManager()
-login_manager.init_app(app)
+
 mail = Mail(app)
 
 db = SQLAlchemy(app)
 db.create_all()
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+#######do not  touch this code upto next comment
+login_manager = LoginManager()
+login_manager.init_app(app)
 @login_manager.user_loader
-def load_user(user_id):
-	return individual.query.get(user_id)
-
-
+def load_user(user_id,endpoint='user'):
+	temp = doctor.query.get(user_id)
+	if temp:
+		return temp
+	else:
+		return individual.query.get(user_id)
+	
+################upto here
 
 @indi_dashboard_bp.route('/indi/dashboard') 		############Dashboard for individual
 @login_required
@@ -82,7 +88,7 @@ def dashboard_search_dr():
 
 
 
-@indi_dashboard_bp.route('/indi/dashboard/search_lab')		###########Dashboard labs searcch
+@indi_dashboard_bp.route('/indi/dashboard/search_labs')		###########Dashboard labs searcch
 @login_required
 def dashboard_search_lab():
 	return render_template('indi_search_labs.html')

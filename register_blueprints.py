@@ -70,7 +70,7 @@ def sub():
 def doctor_reg_sub():
 	if request.method == 'POST':
 		try:
-			indi_id = request.form['id']
+			indi_id = request.form['uid']
 			fname = request.form['fname']
 			lname = request.form['lname']
 			email = request.form['email']

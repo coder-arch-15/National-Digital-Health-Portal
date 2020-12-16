@@ -9,20 +9,25 @@ from models import individual,labs,doctor
 #from models import doctor
 from flask_mail import Mail, Message
 
-login_manager = LoginManager()
-login_manager.init_app(app)
+
 mail = Mail(app)
 db = SQLAlchemy(app)
 db.create_all()
 SQLALCHEMY_TRACK_MODIFICATIONS = False
-
-
 login_bp = Blueprint('login_bp', __name__)
 
-@login_manager.user_loader
-def load_user(user_id):
-	return individual.query.get(user_id)
+#######do not  touch this code upto next comment
 
+login_manager = LoginManager()
+login_manager.init_app(app)
+@login_manager.user_loader
+def load_user(user_id,endpoint='user'):
+	temp = doctor.query.get(user_id)
+	if temp:
+		return temp
+	else:
+		return individual.query.get(user_id)
+#############################upto here
 
 
 @login_bp.route('/login_submit', methods = ['GET', 'POST'])

@@ -5,25 +5,36 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 import new_user_credentials as nuc
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import current_app as app
-from models import individual,labs
+from models import individual,labs,doctor
 #from models import doctor
 from flask_mail import Mail, Message
 
 main_bp = Blueprint('main_bp', __name__)
 
+#######do not  touch this code upto next comment
+
 login_manager = LoginManager()
 login_manager.init_app(app)
-mail = Mail(app)
 
+@login_manager.user_loader
+def load_user(user_id,endpoint='user'):
+	temp = doctor.query.get(user_id)
+	if temp:
+		return temp
+	else:
+		return individual.query.get(user_id)
+
+###############upto this comment
+
+
+mail = Mail(app)
 db = SQLAlchemy(app)
 db.create_all()
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-@login_manager.user_loader
-def load_user(user_id):
-	return individual.query.get(user_id)
 
 
+#########################Actual routes for home page
 @main_bp.route('/')
 def home():
 	return render_template('home.html')
