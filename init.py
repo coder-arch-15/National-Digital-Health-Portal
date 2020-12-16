@@ -1,12 +1,10 @@
 from flask import Flask, render_template, redirect, request, url_for
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField
 from flask_sqlalchemy  import SQLAlchemy
 from flask_mail import Mail, Message
 import sqlite3
 
 
-#send_pdf()
+
 # Globally accessible libraries
 db = SQLAlchemy()
 SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -40,6 +38,13 @@ def create_app():
     with app.app_context():
         db.create_all()
 
+        #Registering blueprints on App
         import blueprint
+        import login_blueprints
+        import register_blueprints
+        import indi_dashboard_blueprints
         app.register_blueprint(blueprint.main_bp)
+        app.register_blueprint(login_blueprints.login_bp)
+        app.register_blueprint(register_blueprints.register_bp)
+        app.register_blueprint(indi_dashboard_blueprints.indi_dashboard_bp)
         return app
