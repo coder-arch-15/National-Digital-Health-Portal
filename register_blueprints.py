@@ -70,7 +70,7 @@ def sub():
 @register_bp.route('/doctor_form_submit', methods = ['GET' , 'POST'])
 def doctor_reg_sub():
 	if request.method == 'POST':
-		try:
+		# try:
 			fname = request.form['fname']
 			lname = request.form['lname']
 			email = request.form['email']
@@ -106,9 +106,9 @@ def doctor_reg_sub():
 			mail.send(msg)
 			return render_template('thank.html',namee=thank_msg)
 
-		except Exception as e:
-			msg = e
-			return render_template('thank.html',namee=msg)
+		# except Exception as e:
+		# 	msg = e
+		# 	return render_template('thank.html',namee=msg)
 ###########################################################################
 
 @register_bp.route('/labs_form_submit', methods = ['GET' , 'POST'])
