@@ -5,8 +5,8 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 import new_user_credentials as nuc
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import current_app as app
-from models import individual,labs
-#from models import doctor
+from models import individual,labs,doctor
+
 from flask_mail import Mail, Message
 
 register_bp = Blueprint('register_bp', __name__)
@@ -71,6 +71,7 @@ def sub():
 def doctor_reg_sub():
 	if request.method == 'POST':
 		# try:
+			indi_id = request.form['uid']
 			fname = request.form['fname']
 			lname = request.form['lname']
 			email = request.form['email']
@@ -79,7 +80,7 @@ def doctor_reg_sub():
 			gender = request.form['gender']
 			regnum = request.form['regnum']
 			Specialization = request.form['Specialization']
-			add3=request.form['add3']
+			##add3=request.form['add3']  Please remove this
 			state = request.form['state']
 			city = request.form['city']
 			district = request.form['district']
@@ -87,12 +88,14 @@ def doctor_reg_sub():
 			addr1=request.form['add1']
 			addr2=request.form['add2']
 
-			nu = nuc.New_user(city, dob)
-			h_id, pasw = nu.create_user()
-			temp = individual(id=h_id, pasw=generate_password_hash(pasw) ,
-				fname=fname, lname =lname, email=email, mob =mob, dob=dob,gender=gender,regnum=regnum, Specialization=Specialization,add=add,
+			h_id="D"+indi_id[1:]
+			y,m,d = dob.split("-")
+			pasw = d+m+y
+
+			temp = doctor(uid=h_id, pasw=generate_password_hash(pasw) ,
+				fname=fname, lname =lname, email=email, mob =mob, dob=dob,gender=gender,regnum=regnum, Specialization=Specialization,
 				state=state, city=city, district=district, pin=pin, addr1=addr1, addr2=addr2 )
-			temp.send_pdf_indi()
+			
 			db.session.add(temp)
 			db.session.commit()
 
@@ -101,8 +104,8 @@ def doctor_reg_sub():
 			msg = Message('NDHP Registration', sender = 'ndhp.gov@gmail.com', recipients = [email])
 			msg.body = message
 			path = "C:\\minor_project\\static\\"
-			with app.open_resource("GFG.pdf") as fp:
-				msg.attach("GFG.pdf", "file/pdf", fp.read())
+			#with app.open_resource("GFG.pdf") as fp:
+				#msg.attach("GFG.pdf", "file/pdf", fp.read())
 			mail.send(msg)
 			return render_template('thank.html',namee=thank_msg)
 
