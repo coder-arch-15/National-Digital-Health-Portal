@@ -129,23 +129,29 @@ def lab_form_sub():
 			addr2=request.form['add2']
 
 			#nu = lc.Labs(city, dob)
-			id,pasw = "GWLLAB1","password"
+			nu = nuc.New_user(city, owner_name)
+			h_id, pasw = nu.create_user()
 			temp = labs(id = id, licenseno=licenseno, pasw=generate_password_hash(pasw) ,
-				labname=lab_name, tests_avlbl =tests_avlbl, email=email, mob =mob,
+				labname=lab_name, tests_avlbl =tests_avlbl, email=email, mob =mob, owner_name=owner_name,
 				state=state, city=city, district=district, pin=pin, addr1=addr1, addr2=addr2 )
 			db.session.add(temp)
 			db.session.commit()
 
 			thank_msg = "Record successfully added"
-			message = "Hi "+lab_name+"\nThank You for registering with National Digital Health Portal.\nYour login credentials are - \nUsername - " + id + "\nPassword - " + pasw
+			message = "Hi "+lab_name+"\nThank You for registering with National Digital Health Portal.\nYour login credentials are - \nUsername - " + h_id + "\nPassword - " + pasw
 			msg = Message('NDHP Registration', sender = 'ndhp.gov@gmail.com', recipients = [email])
 			msg.body = message
+			path = "C:\\minor_project\\static\\"
+			with app.open_resource("GFG.pdf") as fp:
+				msg.attach("GFG.pdf", "file/pdf", fp.read())
 			mail.send(msg)
 			return render_template('thank.html',namee=thank_msg)
 
 		except Exception as e:
 			msg = e
 			return render_template('thank.html',namee=msg)
+			mail.send(msg)
+			return render_template('thank.html',namee=thank_msg)
 
 
 
