@@ -95,44 +95,44 @@ def dashboard_search_lab():
 
 
 
-@indi_dashboard_bp.route('/indi/dashboard/search_dr')		###########Dashboard doctor searcch results
+@indi_dashboard_bp.route('/indi/dashboard/search_dr/results', methods= ['GET','POST'])		###########Dashboard doctor searcch results
 @login_required
 def dashboard_search_dr_results():
 	if request.method == 'POST':
 		try:
-			attr = request.form['attrribute']
+			attr = request.form['attribute']
 			value = request.form['value']
 			if(attr=="name"):
-				temp=query.filter(doctor.fname.ilike('%value%'))
-				if (temp==null):
-					temp=query.filter(doctor.lname.ilike('%value%'))
+				temp=doctor.query.filter(doctor.fname.ilike('%value%'))
+				# if (!temp):
+				# 	temp=doctor.query.filter(doctor.lname.ilike('%value%'))
 			elif(attr=="city"):
 				temp=query.filter(doctor.city.ilike('%value%'))
 			else:
 				temp=query.filter(doctor.Specialization.ilike('%value%'))
 			if temp:
-				return redirect(url_for('indi_dashboard_bp.dashboard_search_dr'),temp_obj=temp)
+				return render_template('indi_search_dr.html', temp_obj=temp)
 
-		except Ecurrent_userception as e:
+		except Exception as e:
 			flash(e)
 			return redirect(url_for('indi_dashboard_bp.dashboard_search_dr'))
 
 
 
-@indi_dashboard_bp.route('/indi/dashboard/search_lab')		###########Dashboard labs searcch results
+@indi_dashboard_bp.route('/indi/dashboard/search_lab/results' , methods= ['GET','POST'])		###########Dashboard labs searcch results
 @login_required
 def dashboard_search_lab_results():
 	if request.method == 'POST':
 		try:
-			attr = request.form['attrribute']
+			attr = request.form['attribute']
 			value = request.form['value']
 			if(attr=="name"):
-				temp=query.filter(labs.labname.ilike('%value%'))
+				temp=labs.query.filter(labs.labname.ilike('%value%')).all
 			else:
-				temp=query.filter(labs.city.ilike('%value%'))
+				temp=labs.query.filter(labs.city.ilike('%value%'))
 			if temp:
-				return redirect(url_for('indi_dashboard_bp.dashboard_search_lab'),temp_obj=temp)
+				return render_template('indi_search_labs.html', temp_obj=temp)
 
-		except Ecurrent_userception as e:
+		except Exception as e:
 			flash(e)
 			return redirect(url_for('indi_dashboard_bp.dashboard_search_lab'))

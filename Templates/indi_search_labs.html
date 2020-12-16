@@ -9,14 +9,44 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
 <body>
+
+	<style type="text/css">
+		.search{
+			margin: 100px 0px 0px 242px;
+		  padding: 30px 30px 40px 80px;
+		background-image: linear-gradient(to top left, lightgreen,lightblue);
+  		border-radius: 8px;}
+
+  	select,input,input[type=text], input[type=password] {
+  width: 25%;
+  padding: 12px;
+  margin: 7px 80px 15px 10px;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+	.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 13px 33px;
+  margin: 23px 0px 281px 10px;
+  border: none;
+  cursor: pointer;
+  width: 62%;
+  opacity: 0.9;
+}
+  	
+	</style>
 	    <!--header area start-->
     {% include 'layouts/header.html' %}
     <!--header area end-->
     <!--sidebar start-->
     {% include 'layouts/indi_sidebar.html' %}
-      <h1 class="excp">Search Labs by Name or City </h1><br>
-      <form action="/indi/dashboard/labs/search/results" method="post">
-    
+      
+      <form action="/indi/dashboard/search_lab/results" method="post">
+    <div class="search">
+    	<h1 class="excp">Search Labs by Name or City </h1><br>
 	    <select id="attribute" name="attribute" required>
 	      <option value="" disabled selected>Search By</option>
 	      <option value="name">Name</option>
@@ -24,7 +54,9 @@
 	      
 	    </select>
 
-	    <input type="text" id="value" name="value" placeholder = "Enter Value" required>
+	    <input type="text" id="value" name="value" placeholder = "Enter Value" required><br>
+	    <button type="submit" class="registerbtn" id="reg_but">Submit</button>
+	</div>
 	</form>
 </body>
 </html>
