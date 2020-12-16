@@ -5,7 +5,7 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 import new_user_credentials as nuc
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import current_app as app
-from models import individual,labs
+from models import individual,labs,doctor
 #from models import doctor
 from flask_mail import Mail, Message
 
