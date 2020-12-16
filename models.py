@@ -58,6 +58,7 @@ class individual(UserMixin, db.Model):
 
 class doctor(UserMixin, db.Model):
 	uid = db.Column(db.String(10), primary_key = True, nullable = False)
+	pasw = db.Column(db.String(100), nullable = False)
 	fname = db.Column(db.String(30), index = False, nullable= False)
 	lname = db.Column(db.String(30), index = False, nullable= False)
 	email = db.Column(db.String(30), index = False, nullable= False)
@@ -66,7 +67,6 @@ class doctor(UserMixin, db.Model):
 	gender = db.Column(db.String(30), index = False, nullable= False)
 	regnum = db.Column(db.Integer(), index = False, nullable= False)
 	Specialization = db.Column(db.Text(30), index = False, nullable= False)
-	add = db.Column(db.String(30), index = False, nullable= False)
 	state = db.Column(db.String(15), index = False, nullable= False)
 	city = db.Column(db.String(15), index = False, nullable= False)
 	district = db.Column(db.String(30), index = False, nullable= True)

@@ -74,3 +74,13 @@ def dashboard_settings_update():
 			flash(e)
 			return redirect(url_for('indi_dashboard_bp.dashboard_settings'))
 
+
+@indi_dashboard_bp.route('/indi/dashboard/search_dr')		###########Dashboard settings for doctor searcch
+@login_required
+def dashboard_search_dr():
+	return render_template('indi_search_dr.html')
+
+@indi_dashboard_bp.route('/indi/dashboard/search_lab')		###########Dashboard settings for doctor searcch
+@login_required
+def dashboard_search_lab():
+	return render_template('indi_search_labs.html')

@@ -5,7 +5,7 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 import new_user_credentials as nuc
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import current_app as app
-from models import individual,labs
+from models import individual,labs,doctor
 #from models import doctor
 from flask_mail import Mail, Message
 
@@ -43,11 +43,11 @@ def login_submit():
 						flash("Incorrect Password")
 						return redirect(url_for('main_bp.login'))
 			elif(username[0]=="D"):
-				temp = individual.query.filter_by(id = username).first()		####replace individual with doctor
+				temp = doctor.query.filter_by(uid = username).first()		####replace individual with doctor
 				if temp:
 					if (check_password_hash(temp.pasw ,password)):
 						login_user(temp)
-						return redirect(url_for('indi_dashboard_bp.indi_dashboard'))
+						return redirect(url_for('doctor_dashboard_bp.doctor_dashboard'))  ### see here
 					else:
 						msg = "Incorrect"
 						flash("Incorrect Password")

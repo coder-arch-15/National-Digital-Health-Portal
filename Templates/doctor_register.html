@@ -6,7 +6,7 @@
 <!-- Javascript -->
 <script src = {{url_for('static', filename="script.js")}}></script>
 <!-- javascript ends -->
-
+<title>NDHP Doctor Register</title>
 <style>
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -132,16 +132,16 @@ a {
 
 <!--=============== Use button to check unique id =========-->
 <label for="uid"><b>Unique Id<font color="red">*</font>:</b></label>
-<input type="text" id="uid" value="{{temp_obj.id}}" name="uid" required><br>
+<input type="text" id="uid" value="{{temp_obj.id}}" name="uid" required disabled><br>
 
     <label for="fname"><b>First Name<font color="red">*</font>:</b></label>
-    <input type="text" id="fname" value="{{temp_obj.fname}}" name="fname" required disabled>
+    <input type="text" id="fname" value="{{temp_obj.fname}}" name="fname" required disabled> 
 
     <label for="lname"><b>Last Name<font color="red">*</font>:</b></label>
     <input type="text" id="lname" name="lname" value= "{{temp_obj.lname}}"required disabled><br>
 
     <label for="email"><b>Email<font color="red">*</font>:</b></label>
-    <input type="text" placeholder="{{temp_obj.email}}" name="email" id="email" required disabled>
+    <input type="text" value="{{temp_obj.email}}" name="email" id="email" required disabled>
 
     <label for="mob"><b>Mobile Number<font color="red">*</font>:</b></label>
     <input type="text" id="mob" name="mob" value="{{temp_obj.mob}}" pattern="[0-9]{10}" required disabled><br>
@@ -234,7 +234,7 @@ a {
     <input type="checkbox" id="decl" name="decl" value="decl" required>
     <label for="decl" class="excp"> I hereby declare that the details furnished above are true and correct to the best of my knowledge and belief.</label><br>
 
-    <button type="submit" class="registerbtn" id="reg_but">Submit</button>
+    <button type="submit" onclick="invert()" class="registerbtn" id="reg_but">Submit</button>
   </div>
 
   <div class="signin">
@@ -245,6 +245,16 @@ a {
 <!-- Footer code starts-->
 {% include 'home_layouts/footer.html' %}
 <!-- Footer code ends-->
-
+<script type="text/javascript">
+  function invert(){
+    document.getElementById("fname").disabled =false;
+    document.getElementById("lname").disabled =false;
+    document.getElementById("dob").disabled =false;
+    document.getElementById("mob").disabled =false;
+    document.getElementById("gender").disabled =false;
+    document.getElementById("uid").disabled =false;
+    document.getElementById("email").disabled =false;
+  }
+</script>
 </body>
 </html>
