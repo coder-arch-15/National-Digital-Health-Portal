@@ -22,3 +22,9 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 @login_manager.user_loader
 def load_user(user_id):
 	return doctor.query.get(user_id)
+
+
+@doctor_dashboard_bp.route('/doctor/dashboard') 		############Dashboard for doctor
+@login_required
+def doctor_dashboard():
+	return render_template('doctor_dashboard.html')
