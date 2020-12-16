@@ -42,6 +42,8 @@ def create_app():
         import login_blueprints
         import register_blueprints
         import indi_dashboard_blueprints
+        import doctor_dashboard_blueprints
+        app.register_blueprint(blueprint.doctor_dashboard_bp)
         app.register_blueprint(blueprint.main_bp)
         app.register_blueprint(login_blueprints.login_bp)
         app.register_blueprint(register_blueprints.register_bp)
