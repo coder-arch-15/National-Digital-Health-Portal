@@ -66,6 +66,50 @@ def sub():
 			msg = e
 			return render_template('thank.html',namee=msg)
 
+#############################################################################      doctor
+@register_bp.route('/doctor_form_submit', methods = ['GET' , 'POST'])
+def doctor_reg_sub():
+	if request.method == 'POST':
+		# try:
+			fname = request.form['fname']
+			lname = request.form['lname']
+			email = request.form['email']
+			mob = request.form['mob']
+			dob = str(request.form['dob'])
+			gender = request.form['gender']
+			regnum = request.form['regnum']
+			Specialization = request.form['Specialization']
+			add3=request.form['add3']
+			state = request.form['state']
+			city = request.form['city']
+			district = request.form['district']
+			pin = request.form['pincode']
+			addr1=request.form['add1']
+			addr2=request.form['add2']
+
+			nu = nuc.New_user(city, dob)
+			h_id, pasw = nu.create_user()
+			temp = individual(id=h_id, pasw=generate_password_hash(pasw) ,
+				fname=fname, lname =lname, email=email, mob =mob, dob=dob,gender=gender,regnum=regnum, Specialization=Specialization,add=add,
+				state=state, city=city, district=district, pin=pin, addr1=addr1, addr2=addr2 )
+			temp.send_pdf_indi()
+			db.session.add(temp)
+			db.session.commit()
+
+			thank_msg = "Record successfully added"
+			message = "Hi "+fname+" " +lname+"\nThank You for registering with National Digital Health Portal.\nYour login credentials are - \nUsername - " + h_id + "\nPassword - " + pasw
+			msg = Message('NDHP Registration', sender = 'ndhp.gov@gmail.com', recipients = [email])
+			msg.body = message
+			path = "C:\\minor_project\\static\\"
+			with app.open_resource("GFG.pdf") as fp:
+				msg.attach("GFG.pdf", "file/pdf", fp.read())
+			mail.send(msg)
+			return render_template('thank.html',namee=thank_msg)
+
+		# except Exception as e:
+		# 	msg = e
+		# 	return render_template('thank.html',namee=msg)
+###########################################################################
 
 @register_bp.route('/labs_form_submit', methods = ['GET' , 'POST'])
 def lab_form_sub():
@@ -102,7 +146,7 @@ def lab_form_sub():
 		except Exception as e:
 			msg = e
 			return render_template('thank.html',namee=msg)
-            
+
 
 
 @register_bp.route('/doctor_indi_check', methods = ['GET' , 'POST'])

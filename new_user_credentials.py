@@ -22,6 +22,7 @@ class New_user:
 				if(ord(New_user.aplh2)==123):
 					New_user.aplh2 = "A"
 					New_user.aplh3 = chr(ord(New_user.aplh3) + 1)
+
 		self.unique_id = "I"+New_user.Codes[city.upper()] + New_user.aplh3 + New_user.aplh2 + New_user.aplh1 + str(random.randint(1,99))
 		y,m,d = dob.split("-")
 		self.pasw = d+m+y
