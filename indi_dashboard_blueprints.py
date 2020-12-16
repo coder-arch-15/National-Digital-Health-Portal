@@ -5,8 +5,7 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 import new_user_credentials as nuc
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import current_app as app
-from models import individual,labs
-#from models import doctor
+from models import individual,labs,doctor
 from flask_mail import Mail, Message
 
 indi_dashboard_bp = Blueprint('indi_dashboard_bp', __name__)
@@ -75,12 +74,59 @@ def dashboard_settings_update():
 			return redirect(url_for('indi_dashboard_bp.dashboard_settings'))
 
 
-@indi_dashboard_bp.route('/indi/dashboard/search_dr')		###########Dashboard settings for doctor searcch
+
+@indi_dashboard_bp.route('/indi/dashboard/search_dr')		###########Dashboard doctor searcch
 @login_required
 def dashboard_search_dr():
 	return render_template('indi_search_dr.html')
 
-@indi_dashboard_bp.route('/indi/dashboard/search_lab')		###########Dashboard settings for doctor searcch
+
+
+@indi_dashboard_bp.route('/indi/dashboard/search_lab')		###########Dashboard labs searcch
 @login_required
 def dashboard_search_lab():
 	return render_template('indi_search_labs.html')
+
+
+
+@indi_dashboard_bp.route('/indi/dashboard/search_dr')		###########Dashboard doctor searcch results
+@login_required
+def dashboard_search_dr_results():
+	if request.method == 'POST':
+		try:
+			attr = request.form['attrribute']
+			value = request.form['value']
+			if(attr=="name"):
+				temp=query.filter(doctor.fname.ilike('%value%'))
+				if (temp==null):
+					temp=query.filter(doctor.lname.ilike('%value%'))
+			elif(attr=="city"):
+				temp=query.filter(doctor.city.ilike('%value%'))
+			else:
+				temp=query.filter(doctor.Specialization.ilike('%value%'))
+			if temp:
+				return redirect(url_for('indi_dashboard_bp.dashboard_search_dr'),temp_obj=temp)
+
+		except Ecurrent_userception as e:
+			flash(e)
+			return redirect(url_for('indi_dashboard_bp.dashboard_search_dr'))
+
+
+
+@indi_dashboard_bp.route('/indi/dashboard/search_lab')		###########Dashboard labs searcch results
+@login_required
+def dashboard_search_lab_results():
+	if request.method == 'POST':
+		try:
+			attr = request.form['attrribute']
+			value = request.form['value']
+			if(attr=="name"):
+				temp=query.filter(labs.labname.ilike('%value%'))
+			else:
+				temp=query.filter(labs.city.ilike('%value%'))
+			if temp:
+				return redirect(url_for('indi_dashboard_bp.dashboard_search_lab'),temp_obj=temp)
+
+		except Ecurrent_userception as e:
+			flash(e)
+			return redirect(url_for('indi_dashboard_bp.dashboard_search_lab'))

@@ -11,9 +11,6 @@ from flask_mail import Mail, Message
 
 login_manager = LoginManager()
 login_manager.init_app(app)
-@login_manager.user_loader
-def load_user(user_id):
-	return individual.query.get(user_id)
 mail = Mail(app)
 db = SQLAlchemy(app)
 db.create_all()
@@ -22,6 +19,9 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 login_bp = Blueprint('login_bp', __name__)
 
+@login_manager.user_loader
+def load_user(user_id):
+	return individual.query.get(user_id)
 
 
 
@@ -31,7 +31,6 @@ def login_submit():
 		try:
 			username = request.form['username']
 			password = request.form['password']
-			print("hello")
 			if(username[0]=="I"):
 				temp = individual.query.filter_by(id = username).first()
 				if temp:

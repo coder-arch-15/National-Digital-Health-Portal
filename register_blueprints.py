@@ -6,7 +6,6 @@ import new_user_credentials as nuc
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import current_app as app
 from models import individual,labs,doctor
-
 from flask_mail import Mail, Message
 
 register_bp = Blueprint('register_bp', __name__)
