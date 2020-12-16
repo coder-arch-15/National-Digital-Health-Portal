@@ -45,7 +45,7 @@ def hello_worl():
 
 @main_bp.route('/doctor_register')
 def hello_world():
-	return render_template('doctor_register.html')
+	return render_template('doctor_indi_check.html')
 
 
 

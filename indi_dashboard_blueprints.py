@@ -28,7 +28,7 @@ def load_user(user_id):
 @indi_dashboard_bp.route('/indi/dashboard') 		############Dashboard for individual
 @login_required
 def indi_dashboard():
-	return render_template('indi_dashboard.html', name = current_user.get_name())
+	return render_template('indi_dashboard.html', cu = current_user)
 
 
 @indi_dashboard_bp.route('/indi/dashboard/settings')		###########Dashboard settings for individual

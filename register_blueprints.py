@@ -103,3 +103,28 @@ def lab_form_sub():
 			msg = e
 			return render_template('thank.html',namee=msg)
             
+
+
+@register_bp.route('/doctor_indi_check', methods = ['GET' , 'POST'])
+def doctor_indi_check():
+	if request.method == 'POST':
+		try:
+			indi_id = request.form['indi']
+			if(indi_id[0]=="I"):
+					temp = individual.query.filter_by(id = indi_id).first()
+					if temp:
+						return render_template('doctor_register.html', temp_obj=temp)
+					else:
+						msg = "User not registered"
+						flash("User not registered!")
+						return redirect(url_for('register_bp.doctor_indi_check'))
+
+			else:
+				msg = "Invalid User ID!"
+				flash("Invalid User ID!")
+				return redirect(url_for('register_bp.doctor_indi_check'))
+
+		except Exception as e:
+			flash(e)
+			return render_template('doctor_indi_check.html')
+			#msg = "Error in insert operation"
