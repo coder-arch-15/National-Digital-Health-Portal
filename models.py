@@ -57,7 +57,7 @@ class individual(UserMixin, db.Model):
 #_____________Added by eshan___________
 
 class doctor(UserMixin, db.Model):
-	uid = db.Column(db.String(10), primary_key = True, nullable = False)
+	id = db.Column(db.String(10), primary_key = True, nullable = False)
 	pasw = db.Column(db.String(100), nullable = False)
 	fname = db.Column(db.String(30), index = False, nullable= False)
 	lname = db.Column(db.String(30), index = False, nullable= False)

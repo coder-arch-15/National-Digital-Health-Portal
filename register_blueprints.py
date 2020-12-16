@@ -71,7 +71,7 @@ def sub():
 def doctor_reg_sub():
 	if request.method == 'POST':
 		try:
-			indi_id = request.form['uid']
+			indi_id = request.form['id']
 			fname = request.form['fname']
 			lname = request.form['lname']
 			email = request.form['email']
@@ -92,10 +92,10 @@ def doctor_reg_sub():
 			y,m,d = dob.split("-")
 			pasw = d+m+y
 
-			temp = doctor(uid=h_id, pasw=generate_password_hash(pasw) ,
+			temp = doctor(id=h_id, pasw=generate_password_hash(pasw) ,
 				fname=fname, lname =lname, email=email, mob =mob, dob=dob,gender=gender,regnum=regnum, Specialization=Specialization,
 				state=state, city=city, district=district, pin=pin, addr1=addr1, addr2=addr2 )
-			
+
 			db.session.add(temp)
 			db.session.commit()
 

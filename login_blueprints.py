@@ -43,7 +43,7 @@ def login_submit():
 						flash("Incorrect Password")
 						return redirect(url_for('main_bp.login'))
 			elif(username[0]=="D"):
-				temp = doctor.query.filter_by(uid = username).first()		####replace individual with doctor
+				temp = doctor.query.filter_by(id = username).first()		####replace individual with doctor
 				if temp:
 					if (check_password_hash(temp.pasw ,password)):
 						login_user(temp)
