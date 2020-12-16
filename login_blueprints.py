@@ -31,6 +31,7 @@ def login_submit():
 		try:
 			username = request.form['username']
 			password = request.form['password']
+			print("hello")
 			if(username[0]=="I"):
 				temp = individual.query.filter_by(id = username).first()
 				if temp:
