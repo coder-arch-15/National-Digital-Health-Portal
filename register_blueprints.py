@@ -79,7 +79,7 @@ def doctor_reg_sub():
 			gender = request.form['gender']
 			regnum = request.form['regnum']
 			Specialization = request.form['Specialization']
-			add=request.form['add']
+			add3=request.form['add3']
 			state = request.form['state']
 			city = request.form['city']
 			district = request.form['district']
