@@ -11,7 +11,7 @@ class New_user:
 	aplh1="B"
 	aplh2="A"
 	aplh3="L"
-	def __init__(self, city,owner_name):
+	def __init__(self,city,owner_name):
 		New_user.numCounter+=1
 		if (New_user.numCounter==1000):
 			New_user.numCounter=0
