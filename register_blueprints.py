@@ -6,7 +6,6 @@ import new_user_credentials as nuc
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import current_app as app
 from models import individual,labs,doctor
-
 from flask_mail import Mail, Message
 
 register_bp = Blueprint('register_bp', __name__)
@@ -92,10 +91,10 @@ def doctor_reg_sub():
 			y,m,d = dob.split("-")
 			pasw = d+m+y
 
-			temp = doctor(uid=h_id, pasw=generate_password_hash(pasw) ,
+			temp = doctor(id=h_id, pasw=generate_password_hash(pasw) ,
 				fname=fname, lname =lname, email=email, mob =mob, dob=dob,gender=gender,regnum=regnum, Specialization=Specialization,
 				state=state, city=city, district=district, pin=pin, addr1=addr1, addr2=addr2 )
-			
+
 			db.session.add(temp)
 			db.session.commit()
 

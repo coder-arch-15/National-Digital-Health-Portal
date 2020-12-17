@@ -36,22 +36,22 @@
   width: 62%;
   opacity: 0.9;
 }
-  	
+
 	</style>
 	    <!--header area start-->
     {% include 'layouts/header.html' %}
     <!--header area end-->
     <!--sidebar start-->
     {% include 'layouts/indi_sidebar.html' %}
-      
-      <form action="/indi/dashboard/search_lab/results" method="post">
+
+      <form action="/doctor/dashboard/search_lab/results" method="post">
     <div class="search">
     	<h1 class="excp">Search Labs by Name or City </h1><br>
 	    <select id="attribute" name="attribute" required>
 	      <option value="" disabled selected>Search By</option>
 	      <option value="name">Name</option>
 	      <option value="city">City</option>
-	      
+
 	    </select>
 
 	    <input type="text" id="value" name="value" placeholder = "Enter Value" required><br>

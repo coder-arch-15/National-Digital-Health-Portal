@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Search Laboratories</title>
+	<title>Search Doctor</title>
 	       <link rel="stylesheet" href="{{url_for('static', filename = "dashboard_style.css")}}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,26 +36,34 @@
   width: 62%;
   opacity: 0.9;
 }
-  	
+
 	</style>
 	    <!--header area start-->
     {% include 'layouts/header.html' %}
     <!--header area end-->
     <!--sidebar start-->
     {% include 'layouts/indi_sidebar.html' %}
-      
-      <form action="/indi/dashboard/search_lab/results" method="post">
+
+    <form action="/doctor/dashboard/search_dr/results" method="post">
     <div class="search">
-    	<h1 class="excp">Search Labs by Name or City </h1><br>
+    	<h1 class="exc">Search Doctors by Name, City or Specialization </h1><br>
 	    <select id="attribute" name="attribute" required>
 	      <option value="" disabled selected>Search By</option>
 	      <option value="name">Name</option>
 	      <option value="city">City</option>
-	      
+	      <option value="spl">Specialization</option>
+
 	    </select>
 
-	    <input type="text" id="value" name="value" placeholder = "Enter Value" required><br>
+	    <input type="text" id="value" name="value" placeholder = "Enter Value" required>
+	    <br>
 	    <button type="submit" class="registerbtn" id="reg_but">Submit</button>
+
+	    	{{temp.fname}}
+	    	{{temp.addr1}}
+
+
+
 	</div>
 	</form>
 </body>

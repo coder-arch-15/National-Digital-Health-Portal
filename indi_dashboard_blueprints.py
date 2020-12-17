@@ -5,25 +5,30 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 import new_user_credentials as nuc
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import current_app as app
-from models import individual,labs
-#from models import doctor
+from models import individual,labs,doctor
 from flask_mail import Mail, Message
 
 indi_dashboard_bp = Blueprint('indi_dashboard_bp', __name__)
 
-login_manager = LoginManager()
-login_manager.init_app(app)
+
 mail = Mail(app)
 
 db = SQLAlchemy(app)
 db.create_all()
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+#######do not  touch this code upto next comment
+login_manager = LoginManager()
+login_manager.init_app(app)
 @login_manager.user_loader
-def load_user(user_id):
-	return individual.query.get(user_id)
-
-
+def load_user(user_id,endpoint='user'):
+	temp = doctor.query.get(user_id)
+	if temp:
+		return temp
+	else:
+		return individual.query.get(user_id)
+	
+################upto here
 
 @indi_dashboard_bp.route('/indi/dashboard') 		############Dashboard for individual
 @login_required
@@ -75,12 +80,59 @@ def dashboard_settings_update():
 			return redirect(url_for('indi_dashboard_bp.dashboard_settings'))
 
 
-@indi_dashboard_bp.route('/indi/dashboard/search_dr')		###########Dashboard settings for doctor searcch
+
+@indi_dashboard_bp.route('/indi/dashboard/search_dr')		###########Dashboard doctor searcch
 @login_required
 def dashboard_search_dr():
 	return render_template('indi_search_dr.html')
 
-@indi_dashboard_bp.route('/indi/dashboard/search_lab')		###########Dashboard settings for doctor searcch
+
+
+@indi_dashboard_bp.route('/indi/dashboard/search_labs')		###########Dashboard labs searcch
 @login_required
 def dashboard_search_lab():
 	return render_template('indi_search_labs.html')
+
+
+
+@indi_dashboard_bp.route('/indi/dashboard/search_dr/results', methods= ['GET','POST'])		###########Dashboard doctor searcch results
+@login_required
+def dashboard_search_dr_results():
+	if request.method == 'POST':
+		try:
+			attr = request.form['attribute']
+			value = request.form['value']
+			if(attr=="name"):
+				temp=doctor.query.filter(doctor.fname.ilike('%value%'))
+				# if (!temp):
+				# 	temp=doctor.query.filter(doctor.lname.ilike('%value%'))
+			elif(attr=="city"):
+				temp=query.filter(doctor.city.ilike('%value%'))
+			else:
+				temp=query.filter(doctor.Specialization.ilike('%value%'))
+			if temp:
+				return render_template('indi_search_dr.html', temp_obj=temp)
+
+		except Exception as e:
+			flash(e)
+			return redirect(url_for('indi_dashboard_bp.dashboard_search_dr'))
+
+
+
+@indi_dashboard_bp.route('/indi/dashboard/search_lab/results' , methods= ['GET','POST'])		###########Dashboard labs searcch results
+@login_required
+def dashboard_search_lab_results():
+	if request.method == 'POST':
+		try:
+			attr = request.form['attribute']
+			value = request.form['value']
+			if(attr=="name"):
+				temp=labs.query.filter(labs.labname.ilike('%value%')).all
+			else:
+				temp=labs.query.filter(labs.city.ilike('%value%'))
+			if temp:
+				return render_template('indi_search_labs.html', temp_obj=temp)
+
+		except Exception as e:
+			flash(e)
+			return redirect(url_for('indi_dashboard_bp.dashboard_search_lab'))

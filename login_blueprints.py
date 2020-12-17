@@ -9,20 +9,25 @@ from models import individual,labs,doctor
 #from models import doctor
 from flask_mail import Mail, Message
 
-login_manager = LoginManager()
-login_manager.init_app(app)
-@login_manager.user_loader
-def load_user(user_id):
-	return individual.query.get(user_id)
+
 mail = Mail(app)
 db = SQLAlchemy(app)
 db.create_all()
 SQLALCHEMY_TRACK_MODIFICATIONS = False
-
-
 login_bp = Blueprint('login_bp', __name__)
 
+#######do not  touch this code upto next comment
 
+login_manager = LoginManager()
+login_manager.init_app(app)
+@login_manager.user_loader
+def load_user(user_id,endpoint='user'):
+	temp = doctor.query.get(user_id)
+	if temp:
+		return temp
+	else:
+		return individual.query.get(user_id)
+#############################upto here
 
 
 @login_bp.route('/login_submit', methods = ['GET', 'POST'])
@@ -31,7 +36,6 @@ def login_submit():
 		try:
 			username = request.form['username']
 			password = request.form['password']
-			print("hello")
 			if(username[0]=="I"):
 				temp = individual.query.filter_by(id = username).first()
 				if temp:
@@ -43,7 +47,7 @@ def login_submit():
 						flash("Incorrect Password")
 						return redirect(url_for('main_bp.login'))
 			elif(username[0]=="D"):
-				temp = doctor.query.filter_by(uid = username).first()		####replace individual with doctor
+				temp = doctor.query.filter_by(id = username).first()		####replace individual with doctor
 				if temp:
 					if (check_password_hash(temp.pasw ,password)):
 						login_user(temp)
