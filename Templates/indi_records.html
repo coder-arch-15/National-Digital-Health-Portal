@@ -1,0 +1,156 @@
+<!-- created by eshan for records in doctor -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Settings</title>
+	<link rel="stylesheet" href="{{url_for('static', filename = "dashboard_style.css")}}">
+	<link rel="stylesheet" href="{{url_for('static', filename = "register_form_style.css")}}">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+<body>
+
+	    <!--header area start-->
+    {% include 'layouts/header.html' %}
+    <!--header area end-->
+    <!--sidebar start-->
+    {% include 'layouts/doctor_sidebar.html' %}
+    <!--sidebar end-->
+
+    <!--main body-->
+    <form action= '/dashboard/doctor/records' method ='post'>
+    <div class="container" >
+    <hr>
+
+    <label for="pd" class="head"><b><h1><U>Change Account Settings for  - {{current_user.id}}</U></h1></b></label>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		{% for message in messages %}
+		<div class="alert"> {{message}}</div>
+		{% endfor %}
+		{% endif %}
+		{% endwith %}
+		{% block body %}{% endblock %}
+    <br><br>
+
+    <label for="upd_pasw"><b>Update Password:</b></label>
+    <input type="text" id="upd_pasw" name="upd_pasw" placeholder= "Enter New Password"><br>
+
+    <label for="pd" class="head"><b><h2>Personal Details</h2></b></label><br>
+    <label for="fname"><b>First Name<font color="red">*</font>:</b></label>
+    <input type="text" id="fname" placeholder="Enter First Name" name="fname"   onchange = "update_data()" value = "{{current_user.fname}}" required>
+
+    <label for="lname"><b>Last Name<font color="red">*</font>:</b></label>
+    <input type="text" id="lname" name="lname" placeholder= "Enter Last Name"   onchange = "update_data()" value = "{{current_user.lname}}" required><br>
+
+    <label for="dob"><b>Date of Birth<font color="red">*</font>:</b> </label>
+    <input type="date" id="dob" name="dob" value = "{{current_user.dob}}"   onchange = "update_data()" required>
+
+    <label for="mob"><b>Mobile Number<font color="red">*</font>:</b></label>
+    <input type="text" id="mob" name="mob" placeholder="Enter Mobile Number" pattern="[0-9]{10}"   onchange = "update_data()" value = "{{current_user.mob}}" required><br>
+
+    <label for="blood"><b>Blood Group<font color="red">*</font> - </b></label>
+    <select id="blood" name="blood" required  onchange = "update_data()" >
+      <option value = "{{current_user.blood}}" disabled selected>{{current_user.blood}}</option>
+      <option value="O+">O+</option>
+      <option value="O-">O-</option>
+      <option value="A+">A+</option>
+      <option value="A-">A-</option>
+      <option value="B+">B+</option>
+      <option value="B-">B-</option>
+      <option value="AB+">AB+</option>
+      <option value="AB-">AB-</option>
+    </select>
+
+    <label for="gender"><b>Gender<font color="red">*</font> - </b></label>
+    <select id="gender" name="gender" required onchange = "update_data()" >
+      <option value = "{{current_user.gender}}" disabled selected>{{current_user.gender}}</option>
+      <option value="Male">Males</option>
+      <option value="Female">Female</option>
+      <option value="Others">Others</option>
+    </select>
+
+
+
+    <br><br>
+    <label for="add"><b><h2>Address</h2></b></label><br>
+
+    <label for="state"><b>State<font color="red">*</font>:</b></label>
+    <select name="state" id="countrySelect" size="1" onchange ="makeSubmenu(this.value)">
+
+      <option value = "{{current_user.state}}" disabled selected>{{current_user.state}}</option>
+      <option value="ANDAMANANDNICOBARISLANDS">Andaman and Nicobar Islands</option>
+      <option value="AndhraPradesh">Andhra Pradesh</option>
+      <option value="ArunachalPradesh">Arunachal Pradesh</option> <!-- to de added -->
+      <option value="Assam">Assam</option>
+      <option value="Bihar">Bihar</option>
+
+      <option value="Chandigarh">Chandigarh</option> <!-- to de added -->
+      <option value="Chhattisgarh">Chhattisgarh</option>
+      <option value="DadraandNagarHaveliandDamanandDiu">Dadra and Nagar Haveli and Daman and Diu</option> <!-- to de added -->
+      <option value="Delhi">Delhi</option> <!-- to de added -->
+      <option value="Goa">Goa</option>
+
+      <option value="Gujarat">Gujarat</option>
+      <option value="Haryana">Haryana</option>
+      <option value="HimachalPradesh">Himachal Pradesh</option>
+      <option value="JammuandKashmir ">Jammu and Kashmir </option>
+      <option value="Jharkhand">Jharkhand</option>
+
+      <option value="Karnataka">Karnataka</option>
+      <option value="Kerala">Kerala</option>
+      <option value="Ladakh">Ladakh</option> <!-- to de added -->
+      <option value="Lakshadweep">Lakshadweep</option> <!-- to de added -->
+      <option value="MadhyaPradesh">Madhya Pradesh</option>
+
+      <option value="Maharashtra">Maharashtra</option>
+      <option value="Manipur">Manipur</option>
+      <option value="Meghalaya">Meghalaya</option>
+      <option value="Mizoram">Mizoram</option>
+      <option value="Nagaland">Nagaland</option> <!-- to de added -->
+
+      <option value="Odisha">Odisha</option>
+      <option value="Puducherry">Puducherry</option> <!-- to de added -->
+      <option value="Punjab">Punjab</option>
+      <option value="Rajasthan">Rajasthan</option>
+      <option value="Sikkim">Sikkim</option>
+
+      <option value="TamilNadu">Tamil Nadu</option>
+      <option value="Telangana">Telangana</option> <!-- to de added -->
+      <option value="Tripura">Tripura</option>
+      <option value="UttarPradesh">Uttar Pradesh</option>
+      <option value="Uttarakhand">Uttarakhand</option>
+
+      <option value="WestBengal">West Bengal</option>
+    </select>
+
+    <label for ="city"><b>City<font color="red">*</font>:</b></label>
+    <select name="city" id="citySelect" size="1" >
+          <option value="" disabled   onchange = "update_data()" selected value = "{{current_user.city}}">{{current_user.city}}</option>
+    </select>
+
+    <label for="district"><b>District<font color="red">*</font>:</b></label>
+    <input type="text" id="district" placeholder="Enter District" name="district"  onchange = "update_data()"  required value = "{{current_user.district}}">
+
+    <label for="pincode" class="add"><b>Pincode<font color="red">*</font>:</b></label>
+    <input type="text" class="add" id="pincode" placeholder="Enter Pincode" name="pincode" pattern="[0-9]{6}" value = "{{current_user.pin}}"   onchange = "update_data()" required><br>
+
+    <label for="add1"><b>Address line 1<font color="red">*</font>:</b></label>
+    <input type="text" id="add1" placeholder="Enter Complete Address" name="add1"  onchange = "update_data()" value = "{{current_user.addr1}}"   onchange = "update_data()" required>
+
+    <label for="add2"><b>Address line 2:</b></label>
+    <input type="text" id="add2" placeholder="Enter Complete Address" name="add2" onchange = "update_data()" value = "{{current_user.addr2}}">
+
+
+    <hr>
+    <input type="checkbox" id="decl" name="decl" value="decl" required>
+    <label for="decl" class="excp"> I hereby declare that the details furnished above are true and correct to the best of my knowledge and belief.</label><br>
+
+    <button type="submit" class="registerbtn" id="update" disabled>Update</button>
+
+  </div>
+</form>
+</body>
+
+	<script src = {{url_for('static', filename="script_settings.js")}}></script>
+</html>

@@ -38,7 +38,7 @@ def doctor_dashboard():
 @doctor_dashboard_bp.route('/doctor/dashboard/settings')		###########Dashboard settings for doctor
 @login_required
 def dashboard_settings():
-	return render_template('doctor_settings.html', )
+	return render_template('doctor_setting.html', )
 
 
 @doctor_dashboard_bp.route('/dashboard/settings/update', methods = ['GET','POST'])		###########Dashboard settings update  button route for doctor
@@ -77,3 +77,63 @@ def dashboard_settings_update():
 		except Ecurrent_userception as e:
 			flash(e)
 			return redirect(url_for('doctor_dashboard_bp.dashboard_settings'))
+
+
+@doctor_dashboard_bp.route('/doctor/dashboard/search_dr')		###########Dashboard doctor searcch
+@login_required
+def dashboard_search_dr():
+	return render_template('doctor_search_dr.html')
+
+
+
+@doctor_dashboard_bp.route('/doctor/dashboard/search_labs')		###########Dashboard labs searcch
+@login_required
+def dashboard_search_lab():
+	return render_template('doctor_search_labs.html')
+
+@doctor_dashboard_bp.route('/doctor/dashboard/indi_records')		###########Dashboard Indi records
+@login_required
+def dashboard_indi_records():
+	return render_template('indi_records.html')
+
+@doctor_dashboard_bp.route('/doctor/dashboard/search_dr/results', methods= ['GET','POST'])		###########Dashboard doctor searcch results
+@login_required
+def dashboard_search_dr_results():
+	if request.method == 'POST':
+		try:
+			attr = request.form['attribute']
+			value = request.form['value']
+			if(attr=="name"):
+				temp=doctor.query.filter(doctor.fname.ilike('%value%'))
+				# if (!temp):
+				# 	temp=doctor.query.filter(doctor.lname.ilike('%value%'))
+			elif(attr=="city"):
+				temp=query.filter(doctor.city.ilike('%value%'))
+			else:
+				temp=query.filter(doctor.Specialization.ilike('%value%'))
+			if temp:
+				return render_template('doctor_search_dr.html', temp_obj=temp)
+
+		except Exception as e:
+			flash(e)
+			return redirect(url_for('doctor_dashboard_bp.dashboard_search_dr'))
+
+
+
+@doctor_dashboard_bp.route('/doctor/dashboard/search_lab/results' , methods= ['GET','POST'])		###########Dashboard labs searcch results
+@login_required
+def dashboard_search_lab_results():
+	if request.method == 'POST':
+		try:
+			attr = request.form['attribute']
+			value = request.form['value']
+			if(attr=="name"):
+				temp=labs.query.filter(labs.labname.ilike('%value%')).all
+			else:
+				temp=labs.query.filter(labs.city.ilike('%value%'))
+			if temp:
+				return render_template('doctor_search_labs.html', temp_obj=temp)
+
+		except Exception as e:
+			flash(e)
+			return redirect(url_for('doctor_dashboard_bp.dashboard_search_lab'))
