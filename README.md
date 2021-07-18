@@ -24,7 +24,7 @@
 <h3><b>Solution</b></h3>
 <ul>
     <li>
-        The Project works with the making a centralized digital health record. 
+        The Project works with the making of a centralized digital health record. 
     </li>
     <li>
         Unique digital IDs will provide a single source of health information for the patients, government and healthcare providers through interoperable health records. 
@@ -33,14 +33,14 @@
         Research shows that the adoption of Electronic Health Records leads to an increase in the quality of care received by the patients while decreasing costs of service.
     </li>
     <li>
-        This project is a website which takes in the input by the users as input, processes it-saves the appointment and then gives a confirmation. 
+        This project is a website that takes in the users' input as input, processes it-saves the appointment, and then gives a confirmation.
     </li>
     <li>
-        We creates three different classes namely - <br>
+        We created three different classes namely - <br>
         <ul>
-            <li><b>Individuals</b> : Every citizen of India with an Aadhaar Number is can be registered under the individual category. Individuals can create an appointment with Doctors, schedule lab tests/diagnosis, and access medical reports.</li>
-            <li><b>Doctors</b> : An individual with a valid registration number (provided by Medical Council of India) can register further as a Doctor. A Doctor needs to be registered as an Individual first. Doctor can have access to patient's medical records, lab reports and manage other activities. </li>
-            <li><b>Laboratories</b> : Any registered Laboratory/ Pathology can enroll. Theses laboraties will upload patient's report. Labs will directly be able to add records to patient's database.</li>
+            <li><b>Individuals</b>: Every citizen of India with an Aadhaar Number is can be registered under the individual category. Individuals can create an appointment with Doctors, schedule lab tests/diagnoses, and access medical reports.</li>
+            <li><b>Doctors</b>: An individual with a valid registration number (provided by the Medical Council of India) can register further as a Doctor. A Doctor needs to be registered as an Individual first. Doctors can have access to patient's medical records, lab reports and manage other activities. </li>
+            <li><b>Laboratories</b>: Any registered Laboratory/ Pathology can enroll. These laboratories will upload patient's reports. Labs will directly be able to add records to the patient's database.</li>
         </ul>
     </li>
 </ul>
@@ -52,7 +52,7 @@
         The project is based on Python-Flask Framework. We are using MySQL database for storing the information.
     </li>
     <li>
-        The registration form for the Individual is shown below. Aadhaar Number is a mandatory field in order to authenticate user using biometric authentications. Each Individual is provided by a unique id called Individual ID (starting with I) .
+        The registration form for the Individual is shown below. Aadhaar Number is a mandatory field in order to authenticate users using biometric authentications. Each Individual is provided by a unique id called Individual ID (starting with I) .
     </li>
      <p align="center"  style="margin-top:5px;">
   <img src="individual.png" width="1500" height = "500" title="output">
@@ -76,8 +76,7 @@
     <img src="laboratory.png" width="1000" height = "500" title="output">
   </p>
 <li>
-    Once registered, user can use a common Login Page to login using the username password provided on the email address. 
-    The password can be changed through the user-dashboard. Users can avail different services based on the category of user.
+    Once registered, the user can use a common Login Page to log in using the username password provided on the email address. The password can be changed through the user dashboard. Users can avail different services based on the category of user.
     <p align="center"  style="margin-top:5px;">
     <img src="login.png" width="1500" height = "500" title="output">
   </p>
@@ -92,10 +91,10 @@
     We made sure that everybody is able to glide through the interface smoothly. 
 </li>
 <li>
-    A very important future aspect of this project can be seen in implementing it on ground as it will greatly decrease the burden of maintaining medical data of numerous patients on paper. 
+    A very important future aspect of this project can be seen in implementing it on the ground as it will greatly decrease the burden of maintaining the medical data of numerous patients on paper. 
 </li>
 <li>
-    The provision of unique identity number to every user will ensure that the entire medical history of patients, information about doctors, etc. can be made available in a few clicks. 
+    The provision of a unique identity number to every user will ensure that the entire medical history of patients, information about doctors, etc. can be made available in a few clicks. 
 </li>
 
 </ul>
