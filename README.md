@@ -1,15 +1,15 @@
 # National-Digital-Health-Portal
-<h2><b>Machine Leaning module to detect vehicle class to avoid FastTag frauds.</b></h2>
+<h2><b>Minor project created by Archit Agarwal, Eshan Sharma and Sakshi Sharma using Flask Framework.</b></h2>
 <h3><b>Problem Statement</b></h3>
 <ul>
     <li>
-        There are a lot of tasks in medicine field which are repetitive and don’t necessarily require medical expertise.
+      There are many tasks in medicine that are repetitive and don’t necessarily require medical expertise.
     </li>
     <li>
-        There is a need to optimize these processes and resources in-order to streamline the working of medical experts and take away their burden of non-medical tasks such as booking appointments, compiling medical history of patients, compiling laboratory results. 
+        There is a need to optimize these processes and resources in order to streamline the working of medical experts and take away their burden of non-medical tasks such as booking appointments, compiling medical history of patients, compiling laboratory results. 
     </li>
     <li>
-        This proposed work uses website-based user interface for booking appointments, laboratory tests and user interface for doctors to see medical history of patients and lab reports to design a system which reduces the burden of medical professionals from desk-work and let them focus on providing care and support to the patients. 
+        This proposed work uses a website-based user interface for booking appointments, laboratory tests, and a user interface for doctors to see the medical history of patients and lab reports to design a system which reduces the burden of medical professionals from deskwork and let them focus on providing care and support to the patients. 
     </li>
     <li>
         This serves as a very handy and feasible resource for doctors as well as patients as it provides ease of accessing and updating information.
