@@ -7,20 +7,16 @@
     </li>
     <li>
         There is a need to optimize these processes and resources in-order to streamline the working of medical experts and take away their burden of non-medical tasks such as booking appointments, compiling medical history of patients, compiling laboratory results. 
-
     </li>
     <li>
         This proposed work uses website-based user interface for booking appointments, laboratory tests and user interface for doctors to see medical history of patients and lab reports to design a system which reduces the burden of medical professionals from desk-work and let them focus on providing care and support to the patients. 
     </li>
-    
     <li>
         This serves as a very handy and feasible resource for doctors as well as patients as it provides ease of accessing and updating information.
     </li>
      <p align="center"  style="margin-top:5px;">
   <img src="landing.png" width="1000" title="Landing Page">
-</p>
-
-    
+</p>  
 </ul>
 
 <br>
@@ -53,25 +49,38 @@
 <h3><b>More About The Code</b></h3>
 <ul>
     <li>
+        The project is based on Python-Flask Framework. We are using MySQL database for storing the information.
+    </li>
+    <li>
         The registration form for the Individual is shown below. Aadhaar Number is a mandatory field in order to authenticate user using biometric authentications. Each Individual is provided by a unique id called Individual ID (starting with I) .
     </li>
      <p align="center"  style="margin-top:5px;">
-  <img src="output.png" width="1500" height = "500" title="output">
+  <img src="individual.png" width="1500" height = "500" title="output">
     </p>
     <li>
-        For registration as a Doctor, first Individual ID has to be entered. Based on the ID, basic details are pre-fetched from the database and additional information is required to be entered. Post successful registration, a unique ID called Doctor ID (starting with D) is generated.
+        For registration as a Doctor, first Individual ID has to be entered. 
     </li>
      <p align="center"  style="margin-top:5px;">
-  <img src="output2.png" width="1500" height = "500" title="output">
+  <img src="doctorReg1.png" width="1500" height = "500" title="output">
+</p>
+    <li>
+        Based on the ID, basic details are pre-fetched from the database and additional information is required to be entered. Post successful registration, a unique ID called Doctor ID (starting with D) is generated.
+    </li>
+     <p align="center"  style="margin-top:5px;">
+  <img src="doctorReg2.png" width="1500" height = "500" title="output">
 </p>
 <li>
     Registration form for Laboratories can be seen below.
 </li>
 <p align="center"  style="margin-top:5px;">
-    <img src="output2.png" width="1500" height = "500" title="output">
+    <img src="laboratory.png" width="1500" height = "500" title="output">
   </p>
 <li>
-    Once registered, user can login into the user-dashboard using the username password provided on the email address mentioned during registration. The password can be changed through the user-dashboard. Users can avail different services based on the category of user.
+    Once registered, user can use a common Login Page to login using the username password provided on the email address. 
+    The password can be changed through the user-dashboard. Users can avail different services based on the category of user.
+    <p align="center"  style="margin-top:5px;">
+    <img src="login.png" width="1500" height = "500" title="output">
+  </p>
 </li>
 </ul>
 <br>
