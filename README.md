@@ -61,19 +61,19 @@
         For registration as a Doctor, first Individual ID has to be entered. 
     </li>
      <p align="center"  style="margin-top:5px;">
-  <img src="doctorReg1.png" width="1500" height = "500" title="output">
+  <img src="doctorReg1.png" width="1000" height = "500" title="output">
 </p>
     <li>
         Based on the ID, basic details are pre-fetched from the database and additional information is required to be entered. Post successful registration, a unique ID called Doctor ID (starting with D) is generated.
     </li>
      <p align="center"  style="margin-top:5px;">
-  <img src="doctorReg2.png" width="1500" height = "500" title="output">
+  <img src="doctorReg2.png" width="1000" height = "500" title="output">
 </p>
 <li>
     Registration form for Laboratories can be seen below.
 </li>
 <p align="center"  style="margin-top:5px;">
-    <img src="laboratory.png" width="1500" height = "500" title="output">
+    <img src="laboratory.png" width="1000" height = "500" title="output">
   </p>
 <li>
     Once registered, user can use a common Login Page to login using the username password provided on the email address. 
